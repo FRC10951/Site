@@ -510,37 +510,142 @@ font-family: 'lulo-clean-w01-one-bold', -apple-system, BlinkMacSystemFont, 'Sego
 
 ### Requirement
 
-**Site must support dark mode** - Full dark mode implementation required.
+**Site must support dark mode** - Full dark mode implementation using Apple's Human Interface Guidelines (HIG) dark mode palette, merged with brand color guidelines.
+
+### Apple Dark Mode Palette
+
+The dark mode color scheme fully adheres to Apple's dark mode color palette, following their Human Interface Guidelines for dark appearances.
+
+#### Color Palette
+
+| Color | Hex | Role | Usage |
+|-------|-----|------|-------|
+| **Pure Black** | `#000000` | Primary Background (True Black) | OLED backgrounds, deepest UI layers, full-screen overlays, video playback |
+| **Dark Elevated 1** | `#161618` | Primary Surface / Standard Background | Main app backgrounds, standard surfaces, lists, scroll views, cards, sections |
+| **Dark Elevated 2** | `#212124` | Secondary Surface / Higher Elevation | Toolbars, navigation bars, sidebars, popovers, context menus, modals |
+| **Pure White** | `#ffffff` | Primary Text / Glyphs / Highlights | High-emphasis text, system icons, key UI highlights, selected states |
+| **Mid-Gray** | `#818181` | Secondary/Tertiary Text, Disabled States | Secondary text, captions, subtitles, placeholder text, disabled elements, dividers |
+
+#### Background Hierarchy
+
+**Primary Surface (`#161618` - Dark Elevated 1)**
+- Main app backgrounds
+- Standard surfaces behind scroll views, table views, lists
+- Container backgrounds (cards, system windows)
+- Sections and content areas
+- Default background for most components
+
+**Secondary Surface (`#212124` - Dark Elevated 2)**
+- Toolbars and navigation bars
+- Sidebars (e.g., macOS Finder sidebar)
+- Components requiring elevation or separation:
+  - Popovers
+  - Context menus
+  - Modals appearing above base backgrounds
+- Elevated UI elements
+
+**Pure Black (`#000000`)**
+- Full-black backgrounds on devices with OLED displays
+- Deepest layers of the UI where no elevation is intended
+- Full-screen backgrounds (e.g., video playback, lock screen, mobile menu overlays)
+- Maximum contrast for high-priority foreground elements
+
+#### Text Hierarchy
+
+**Primary Text (`#ffffff` - Pure White)**
+- Primary text labels (High-emphasis)
+- System icons and glyphs
+- Key UI highlights (selected state indicators, high-contrast text)
+- Interface elements requiring maximum readability
+- All headings (h1-h6)
+- Body text in dark mode
+
+**Secondary/Tertiary Text (`#818181` - Mid-Gray)**
+- Secondary text (captions, subtitles, metadata)
+- Placeholder text
+- Disabled icons, switches, and buttons
+- Dividers, subtle separators
+- Lower visual hierarchy content
 
 ### Color Adaptations
 
 **Backgrounds**
-- **Light Mode:** Pure white (`#ffffff`)
-- **Dark Mode:** Dark background (`#121212` or similar)
+- **Light Mode:** 
+  - Pure white (`#ffffff`) for sections and cards
+  - Light gray (`#f8f8f8`) for subtle backgrounds
+- **Dark Mode:** 
+  - Primary Surface (`#161618`) for sections, cards, and standard backgrounds
+  - Secondary Surface (`#212124`) for toolbars, nav bars, and elevated components
+  - Pure Black (`#000000`) for full-screen overlays and deepest layers
 
 **Text**
-- **Light Mode:** Pure black (`#000000`) or dark gray (`#333333`)
-- **Dark Mode:** Light text (`#e0e0e0` or similar)
+- **Light Mode:** Pure black (`#000000`) for all text
+- **Dark Mode:** 
+  - Pure white (`#ffffff`) for primary text - **STANDARDIZED**
+  - Mid-gray (`#818181`) for secondary/tertiary text and disabled states
+
+**Borders**
+- **Light Mode:** Black (`#000000`)
+- **Dark Mode:** White (`#ffffff`) - **INVERTED**
 
 **Primary Colors**
 - **Light Mode:** Standard primary color (`#0640aa`)
-- **Dark Mode:** Lighter variant for better contrast
+- **Dark Mode:** Lighter variant (`#0a5cd4`) for better contrast on dark backgrounds
 
 **Secondary Colors**
 - **Light Mode:** Standard secondary color (`#00b1eb`)
-- **Dark Mode:** Adjusted for dark backgrounds
+- **Dark Mode:** Lighter variant (`#33c1f0`) for better visibility
 
 **Accent Colors**
 - **Light Mode:** Standard accent color (`#f6c846`)
-- **Dark Mode:** Adjusted for visibility
+- **Dark Mode:** Lighter variant (`#f8d468`) for visibility
+
+### Component Inversion
+
+**Sections**
+- `.bg-white` → Primary Surface (`#161618`) with white text
+- `.bg-light` → Primary Surface (`#161618`) with white text
+- All section backgrounds use Apple Dark Elevated 1
+
+**Navigation & Toolbars**
+- Header navigation: Transparent (overlays content)
+- Footer: Primary Surface (`#161618`)
+- Mobile menu overlay: Pure Black (`#000000`) for full-screen effect
+- Toolbars and elevated UI: Secondary Surface (`#212124`)
+
+**Buttons**
+- Primary/Secondary buttons maintain brand colors (adjusted for dark mode)
+- Outline buttons: Transparent background, white border, white text
+- Ghost buttons: Transparent background, white text, white hover background
+
+**Cards**
+- White cards → Primary Surface (`#161618`)
+- Text: Always white (`#ffffff`) in dark mode
+- Elevated cards: Secondary Surface (`#212124`) when needed
+
+**Sponsors Carousel**
+- Light gray background (`#f8f8f8`) → Primary Surface (`#161618`)
+- Logo filters: Slightly brighter in dark mode for visibility
+- Separator line: Black → White (inverted)
+
+**Forms**
+- Input backgrounds: White → Primary Surface (`#161618`)
+- Input text: Black → White (`#ffffff`)
+- Input borders: Black → White (`#ffffff`)
+- Placeholder text: Mid-gray (`#818181`)
 
 ### Dark Mode Guidelines
 
-1. **Full Support:** All components must have dark mode variants
-2. **Contrast:** Maintain WCAG 2.1 AA compliance in dark mode
-3. **Consistency:** Use same color relationships in both modes
-4. **Toggle:** Provide user preference toggle (optional)
-5. **System Preference:** Respect `prefers-color-scheme` media query
+1. **Full Support:** All components must have dark mode variants using Apple's palette
+2. **Text Standardization:** Primary text must be white (`#ffffff`), secondary text uses mid-gray (`#818181`)
+3. **Background Hierarchy:** Use appropriate elevation levels (Primary Surface, Secondary Surface, Pure Black)
+4. **Contrast:** Maintain WCAG 2.1 AA compliance in dark mode
+5. **Consistency:** Use same color relationships in both modes
+6. **Apple HIG Compliance:** Follow Apple's Human Interface Guidelines for dark mode
+7. **Toggle:** User preference toggle available in header, mobile menu, and footer
+8. **System Preference:** Respect `prefers-color-scheme` media query on first visit
+9. **Persistence:** User preference saved in localStorage
+10. **Elevation:** Use Dark Elevated 2 (`#212124`) for components that need visual separation or elevation
 
 ---
 
@@ -662,9 +767,22 @@ accent: {
 ### Dark Mode Implementation
 
 1. **Tailwind Config:** Ensure `darkMode: 'class'` is set
-2. **Color Variants:** Create dark mode color variants
-3. **Component Updates:** Add dark mode classes to all components
-4. **Testing:** Test all components in both light and dark modes
+2. **Color Variants:** Create dark mode color variants with proper inversion
+3. **Text Standardization:** All text must be white (`#ffffff`) in dark mode
+4. **Background Inversion:** Light backgrounds become dark, dark backgrounds become light
+5. **Component Updates:** Add dark mode classes to all components
+6. **Testing:** Test all components in both light and dark modes
+
+**Implementation Checklist:**
+- [x] Text color standardized to white in dark mode
+- [x] Section backgrounds invert (bg-white → dark, bg-light → dark)
+- [x] Button colors adjusted for dark mode visibility
+- [x] Card backgrounds invert with white text
+- [x] Border colors invert (black → white)
+- [x] Sponsors carousel background inverts
+- [x] Separator lines invert
+- [x] Form inputs invert with white text
+- [x] All headings and text elements use white in dark mode
 
 ### Component Standardization
 

@@ -10,7 +10,7 @@
 			<div class="card mb-8">
 				<div class="image-container mb-6">
 					<img
-						src="/robokids.webp"
+						src="/STEM-community-images/robokids.webp"
 						alt="RoboKids"
 						class="w-full rounded-lg"
 						loading="lazy"

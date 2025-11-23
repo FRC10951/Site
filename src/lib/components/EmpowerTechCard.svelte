@@ -7,7 +7,7 @@
 
 	onMount(() => {
 		if (!imageElement) return;
-		return lazyLoadImage('/empowertech.webp', imageElement);
+		return lazyLoadImage('/STEM-community-images/empowertech.webp', imageElement);
 	});
 </script>
 

@@ -3,7 +3,7 @@
 	<div class="grid">
 		<article class="card project-1">
 			<img
-				src="/project-1.webp"
+				src="/project-images/project-1.webp"
 				alt="Project 1"
 				loading="lazy"
 				decoding="async"
@@ -18,7 +18,7 @@
 		</article>
 		<article class="card project-2">
 			<img
-				src="/project-2.webp"
+				src="/project-images/project-2.webp"
 				alt="Project 2"
 				loading="lazy"
 				decoding="async"
@@ -33,7 +33,7 @@
 		</article>
 		<article class="card project-3">
 			<img
-				src="/project-3.webp"
+				src="/project-images/project-3.webp"
 				alt="Project 3"
 				loading="lazy"
 				decoding="async"
@@ -47,8 +47,8 @@
 			</div>
 		</article>
 		<article class="card about">
-			<h4>About Projects</h4>
-			<p>
+			<h4 class="about-projects-heading text-[#333] dark:text-white">About Projects</h4>
+			<p class="about-projects-text text-[#666] dark:text-white">
 				Our community projects are initiatives that extend beyond competition. We work with local
 				schools, organize workshops, and create educational resources to inspire the next generation
 				of engineers and innovators.
@@ -67,6 +67,10 @@
 		width: 100%;
 	}
 
+	:global(.dark) .projects {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+	}
+
 	.projects > h3 {
 		font-size: 2.5rem;
 		font-weight: 300;
@@ -75,15 +79,19 @@
 		color: #333;
 	}
 
+	:global(.dark) .projects > h3 {
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
 	.grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-rows: auto 1fr 1fr; /* First row auto to allow expansion */
 		gap: 1.5rem;
 		max-width: 95%;
 		width: 100%;
 		margin: 0 auto 3rem;
-		height: 700px;
+		min-height: 700px; /* Changed from fixed height to min-height */
 	}
 
 	/* Card uses global .card class with component-specific overrides */
@@ -103,21 +111,42 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
+		min-height: fit-content; /* Allow content to determine minimum height */
+		overflow: visible; /* Allow content to expand */
 	}
 
-	.card.about h4 {
+	:global(.dark) .card.about {
+		background: #161618 !important; /* Apple Dark Elevated 1 - Primary Surface */
+	}
+
+	.about-projects-heading {
 		margin-top: 0;
 		margin-bottom: 1.5rem;
+		transition: color 0.3s ease;
+		color: #333; /* Light mode default */
 	}
 
-	.card.about p {
+	:global(.dark) .about-projects-heading {
+		color: #ffffff !important; /* Apple Pure White - Primary Text */
+	}
+
+	.about-projects-text {
 		margin: 0;
 		line-height: 1.8;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		transition: color 0.3s ease;
+		color: #666; /* Light mode default */
+	}
+
+	:global(.dark) .about-projects-text {
+		color: #ffffff !important; /* Apple Pure White - Primary Text */
 	}
 
 	.card.project-1 {
 		grid-column: 1 / 3;
 		grid-row: 2 / 4;
+		min-height: 0; /* Allow grid to shrink this when about expands */
 	}
 
 	.card.project-2 {
@@ -159,6 +188,19 @@
 		color: #333;
 	}
 
+	:global(.dark) .card h4 {
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
+	/* Ensure about-projects-heading overrides general card h4 styles with higher specificity */
+	.card.about h4.about-projects-heading {
+		color: #333 !important;
+	}
+
+	:global(.dark) .card.about h4.about-projects-heading {
+		color: #ffffff !important; /* Apple Pure White - Primary Text */
+	}
+
 	.card h5 {
 		font-size: 1.5rem;
 		font-weight: 600;
@@ -197,6 +239,35 @@
 		color: white;
 	}
 
+	@media (max-width: 968px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto auto 1fr;
+			min-height: 600px;
+		}
+
+		.card.about {
+			grid-column: 1 / -1; /* Span full width */
+			grid-row: 1;
+			padding: 2rem 1.5rem; /* Reduced padding for smaller screens */
+		}
+
+		.card.project-1 {
+			grid-column: 1 / -1;
+			grid-row: 2;
+		}
+
+		.card.project-2 {
+			grid-column: 1;
+			grid-row: 3;
+		}
+
+		.card.project-3 {
+			grid-column: 2;
+			grid-row: 3;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.projects {
 			padding: 3rem 1.5rem;
@@ -214,6 +285,7 @@
 			max-width: 100%;
 			gap: 1rem;
 			margin-bottom: 2rem;
+			min-height: auto;
 		}
 
 		.card {
@@ -222,6 +294,7 @@
 
 		.card.about {
 			order: -1; /* Make about card appear first on mobile */
+			padding: 2rem 1.25rem; /* Adequate padding for mobile */
 		}
 
 		.card.project-1 {
@@ -246,6 +319,10 @@
 
 		.card p {
 			font-size: 0.9rem;
+		}
+
+		.card.about p {
+			padding: 0; /* Ensure no extra padding on mobile */
 		}
 
 		.cta button {

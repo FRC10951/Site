@@ -121,20 +121,25 @@
 
 <main>
 	<Hero />
+	<div class="section-separator"></div>
 	<Motto />
+	<div class="section-separator"></div>
 	<SponsorsCarousel />
+	<div class="section-separator"></div>
 
 	<div bind:this={aboutElement}>
 		{#if About}
 			<svelte:component this={About} />
 		{/if}
 	</div>
+	<div class="section-separator"></div>
 
 	<div bind:this={firstAgeElement}>
 		{#if FirstAge}
 			<svelte:component this={FirstAge} />
 		{/if}
 	</div>
+	<div class="section-separator"></div>
 
 	<!-- STEM Community Section: Card-based layout -->
 	<section class="stem-community" bind:this={vexFeatureElement}>
@@ -162,18 +167,21 @@
 			</div>
 		</div>
 	</section>
+	<div class="section-separator"></div>
 
 	<div bind:this={communityProjectsElement}>
 		{#if CommunityProjects}
 			<svelte:component this={CommunityProjects} />
 		{/if}
 	</div>
+	<div class="section-separator"></div>
 
 	<div bind:this={eventsElement}>
 		{#if Events}
 			<svelte:component this={Events} />
 		{/if}
 	</div>
+	<div class="section-separator"></div>
 
 	<div bind:this={ctaElement}>
 		{#if CTA}
@@ -190,6 +198,10 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
+	}
+
+	:global(.dark) main {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
 	}
 
 	.features-grid {
@@ -279,6 +291,11 @@
 		flex-direction: column;
 		justify-content: center;
 		padding: 4rem 2rem;
+		background: white;
+	}
+
+	:global(.dark) .stem-community {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
 	}
 
 	.stem-community-heading {
@@ -286,15 +303,33 @@
 		font-weight: 300;
 		text-align: center;
 		margin: 0 0 2rem 0;
-		color: #333;
+		color: #000000;
 		padding: 0;
 		flex-shrink: 0;
+	}
+
+	:global(.dark) .stem-community-heading {
+		color: #ffffff;
 	}
 
 	.stem-community-content {
 		width: 100%;
 		display: flex;
 		align-items: stretch;
+	}
+
+	/* Section Separator - Color-mode responsive */
+	.section-separator {
+		width: 100%;
+		height: 1px;
+		background: #000000;
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+
+	:global(.dark) .section-separator {
+		background: #ffffff; /* Apple Pure White - Borders in dark mode */
 	}
 
 	@media (max-width: 768px) {

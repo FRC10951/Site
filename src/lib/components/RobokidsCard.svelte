@@ -7,7 +7,7 @@
 
 	onMount(() => {
 		if (!imageElement) return;
-		return lazyLoadImage('/robokids.webp', imageElement);
+		return lazyLoadImage('/STEM-community-images/robokids.webp', imageElement);
 	});
 </script>
 

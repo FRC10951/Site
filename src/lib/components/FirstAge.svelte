@@ -10,7 +10,11 @@
 				</div>
 			</div>
 			<div class="decorative">
-				<img src="/FIRST-AGE.webp" alt="FIRST Age" class="age-image" />
+				<img
+				src="/homepage-images/FIRST-AGE.webp"
+				alt="FIRST Age"
+				class="age-image img-responsive"
+			/>
 			</div>
 		</div>
 	</div>
@@ -26,16 +30,24 @@
 
 	.year {
 		font-size: 1.5rem;
-		font-weight: 600;
+		font-weight: 700;
 		color: var(--color-text-muted);
 		margin-bottom: 0.5rem;
 	}
 
+	:global(.dark) .year {
+		color: #818181; /* Apple Mid-Gray - Secondary Text */
+	}
+
 	.meta h3 {
 		font-size: 3rem;
-		font-weight: 300;
+		font-weight: 700;
 		margin: 0 0 2rem 0;
 		color: var(--color-text-dark);
+	}
+
+	:global(.dark) .meta h3 {
+		color: #ffffff; /* Apple Pure White - Primary Text */
 	}
 
 	.cta {
@@ -58,7 +70,7 @@
 		object-fit: contain;
 		object-position: center;
 		display: block;
-		filter: brightness(1) contrast(1);
+		/* Default brand filters applied via .img-responsive class */
 		transition:
 			transform 0.3s ease,
 			opacity 0.3s ease;

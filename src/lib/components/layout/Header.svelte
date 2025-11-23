@@ -1,5 +1,5 @@
-<script>
-	import { onDestroy } from 'svelte';
+<script lang="ts">
+	import { onDestroy, onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
 	const navItems = [
@@ -11,6 +11,57 @@
 		{ label: 'Contact', href: '/contact' },
 	];
 	let mobileMenuOpen = false;
+	let isDark = false;
+
+	// Initialize dark mode from localStorage (default to light mode)
+	onMount(() => {
+		if (browser) {
+			const stored = localStorage.getItem('theme');
+			// Default to light mode if no preference is stored
+			isDark = stored === 'dark';
+			updateTheme();
+			
+			// Listen for theme changes from other components
+			window.addEventListener('storage', handleStorageChange);
+			window.addEventListener('themechange', handleThemeChange);
+		}
+	});
+
+	function handleStorageChange(e: StorageEvent) {
+		if (e.key === 'theme') {
+			isDark = e.newValue === 'dark';
+			updateTheme();
+		}
+	}
+
+	function handleThemeChange() {
+		if (browser) {
+			const stored = localStorage.getItem('theme');
+			isDark = stored === 'dark';
+			updateTheme();
+		}
+	}
+
+	function toggleTheme() {
+		isDark = !isDark;
+		updateTheme();
+		if (browser) {
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			// Dispatch custom event to sync other components (both lowercase and uppercase for compatibility)
+			window.dispatchEvent(new CustomEvent('themechange'));
+			window.dispatchEvent(new CustomEvent('themeChange'));
+		}
+	}
+
+	function updateTheme() {
+		if (browser) {
+			if (isDark) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		}
+	}
 
 	// Manage body scroll state reactively
 	$: if (browser) {
@@ -34,11 +85,63 @@
 </script>
 
 <header class="site-header" class:menu-open={mobileMenuOpen}>
-	<div class="logo" class:menu-open={mobileMenuOpen}>FRC10951</div>
+		<div class="logo-wrapper" class:menu-open={mobileMenuOpen}>
+			<img
+				src="/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp"
+				alt="FRC 10951 - Saigon South Dragons"
+				class="logo"
+			/>
+		</div>
 	<nav class="desktop-nav">
 		{#each navItems as item}
 			<a href={item.href} class="nav-link">{item.label}</a>
 		{/each}
+		<button
+			class="theme-toggle"
+			on:click={toggleTheme}
+			aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+			title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+		>
+			{#if isDark}
+				<!-- Sun icon for light mode -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<circle cx="12" cy="12" r="5" />
+					<line x1="12" y1="1" x2="12" y2="3" />
+					<line x1="12" y1="21" x2="12" y2="23" />
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+					<line x1="1" y1="12" x2="3" y2="12" />
+					<line x1="21" y1="12" x2="23" y2="12" />
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+				</svg>
+			{:else}
+				<!-- Moon icon for dark mode -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+				</svg>
+			{/if}
+		</button>
 	</nav>
 	<button
 		class="mobile-menu-toggle"
@@ -76,6 +179,53 @@
 				{#each navItems as item}
 					<a href={item.href} class="mobile-nav-link" on:click={closeMobileMenu}>{item.label}</a>
 				{/each}
+				<button
+					class="mobile-theme-toggle"
+					on:click={toggleTheme}
+					aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+					title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+				>
+					{#if isDark}
+						<!-- Sun icon for light mode -->
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<circle cx="12" cy="12" r="5" />
+							<line x1="12" y1="1" x2="12" y2="3" />
+							<line x1="12" y1="21" x2="12" y2="23" />
+							<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+							<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+							<line x1="1" y1="12" x2="3" y2="12" />
+							<line x1="21" y1="12" x2="23" y2="12" />
+							<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+							<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+						</svg>
+					{:else}
+						<!-- Moon icon for dark mode -->
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+						</svg>
+					{/if}
+					<span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+				</button>
 			</div>
 		</nav>
 	{/if}
@@ -98,21 +248,26 @@
 		z-index: 1000;
 	}
 
-	.logo {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: white;
-		letter-spacing: 0.05em;
+	.logo-wrapper {
 		position: relative;
 		z-index: 1001;
 		flex-shrink: 0;
+		/* Clear space: minimum 1x logo height on all sides */
+		padding: 0.5rem;
 	}
 
-	.logo.menu-open {
+	.logo-wrapper.menu-open {
 		position: fixed;
 		left: 2rem;
 		top: 1.5rem;
 	}
+
+		.logo {
+			height: 2.5rem;
+			width: auto;
+			display: block;
+			object-fit: contain;
+		}
 
 	.desktop-nav {
 		display: flex;
@@ -134,10 +289,19 @@
 		position: relative;
 	}
 
+	/* Store original position for overlay */
+	.mobile-menu-toggle:not(.open) {
+		position: relative;
+	}
+
+	/* When menu is open, X button overlays the hamburger position */
 	.site-header.menu-open .mobile-menu-toggle {
 		position: fixed;
 		right: 2rem;
 		top: 1.5rem;
+		/* Ensure it stays in the exact same position */
+		width: 35px;
+		height: 35px;
 	}
 
 	.hamburger-icon,
@@ -195,7 +359,7 @@
 		width: 100vw;
 		min-width: 100vw;
 		height: 100dvh;
-		background: rgba(0, 0, 0, 0.98);
+		background: #000000; /* Apple Pure Black - Deepest layers, full-screen overlays */
 		z-index: 998;
 		display: flex;
 		flex-direction: column;
@@ -274,6 +438,71 @@
 		transform: scaleX(1);
 	}
 
+	/* Theme Toggle Button */
+	.theme-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: transparent;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-radius: 4px;
+		cursor: pointer;
+		padding: 0.5rem;
+		width: 40px;
+		height: 40px;
+		color: white;
+		transition: all var(--transition-base) var(--transition-easing);
+		margin-left: 1rem;
+	}
+
+	.theme-toggle:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.5);
+		transform: translateY(-2px);
+	}
+
+	.theme-toggle:active {
+		transform: translateY(0);
+	}
+
+	.theme-toggle svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	/* Mobile Theme Toggle */
+	.mobile-theme-toggle {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		width: 100%;
+		color: white;
+		text-decoration: none;
+		font-size: 1.5rem;
+		font-weight: 500;
+		padding: 1.5rem 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		background: transparent;
+		border-left: none;
+		border-right: none;
+		cursor: pointer;
+		transition: opacity 0.3s ease, padding-left 0.3s ease;
+		text-align: left;
+		margin-top: 1rem;
+	}
+
+	.mobile-theme-toggle:hover {
+		opacity: 0.7;
+		padding-left: 1rem;
+	}
+
+	.mobile-theme-toggle svg {
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+	}
+
 	@media (max-width: 1024px) {
 		.desktop-nav {
 			display: none;
@@ -287,7 +516,7 @@
 			position: fixed;
 		}
 
-		.logo.menu-open {
+		.logo-wrapper.menu-open {
 			position: fixed;
 			left: 2rem;
 			top: 1.5rem;
@@ -309,14 +538,20 @@
 			padding: 1rem;
 		}
 
-		.logo.menu-open {
+		.logo-wrapper.menu-open {
 			left: 1rem;
 			top: 1rem;
+		}
+
+		.logo {
+			height: 2rem;
 		}
 
 		.site-header.menu-open .mobile-menu-toggle {
 			right: 1rem;
 			top: 1rem;
+			width: 35px;
+			height: 35px;
 		}
 	}
 </style>

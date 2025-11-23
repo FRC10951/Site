@@ -25,6 +25,10 @@
 		overflow: hidden;
 	}
 
+	:global(.dark) .cta-section {
+		background: linear-gradient(135deg, #161618 0%, #212124 100%); /* Apple Dark Elevated 1 to Elevated 2 */
+	}
+
 	.content {
 		max-width: 800px;
 		margin: 0 auto;
@@ -38,11 +42,19 @@
 		color: white;
 	}
 
+	:global(.dark) .content h3 {
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
 	.content p {
 		font-size: 1.2rem;
 		line-height: 1.8;
 		color: rgba(255, 255, 255, 0.9);
 		margin: 0 0 2.5rem 0;
+	}
+
+	:global(.dark) .content p {
+		color: rgba(255, 255, 255, 0.9); /* Maintain high contrast for readability */
 	}
 
 	.buttons {

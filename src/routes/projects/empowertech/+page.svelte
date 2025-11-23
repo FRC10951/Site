@@ -10,7 +10,7 @@
 			<div class="card mb-8">
 				<div class="image-container mb-6">
 					<img
-						src="/empowertech.webp"
+						src="/STEM-community-images/empowertech.webp"
 						alt="EmpowerTech"
 						class="w-full rounded-lg"
 						loading="lazy"

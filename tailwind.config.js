@@ -4,23 +4,22 @@ export default {
 	darkMode: 'class',
 	theme: {
 		extend: {
-			// Color Palette
+			// Color Palette - Brand Colors
 			colors: {
 				primary: {
-					DEFAULT: '#4a9eff',
-					dark: '#0066cc',
-					light: '#6bb0ff',
-					lighter: '#8dc1ff',
+					DEFAULT: '#0640aa',
+					dark: '#042d7a',
+					light: '#0a5cd4',
 				},
 				secondary: {
-					DEFAULT: '#6c757d',
-					dark: '#5a6268',
-					light: '#868e96',
+					DEFAULT: '#00b1eb',
+					dark: '#008bb8',
+					light: '#33c1f0',
 				},
 				accent: {
-					DEFAULT: '#ff6b6b',
-					dark: '#ee5a5a',
-					light: '#ff8787',
+					DEFAULT: '#f6c846',
+					dark: '#d4a83a',
+					light: '#f8d468',
 				},
 				success: {
 					DEFAULT: '#51cf66',
@@ -37,27 +36,40 @@ export default {
 					dark: '#ee5a5a',
 					light: '#ff8787',
 				},
-				background: {
-					DEFAULT: '#121212',
-					alt: '#1a1a1a',
-					light: '#ffffff',
-					lightAlt: '#f8f8f8',
-				},
-				text: {
-					DEFAULT: '#e0e0e0',
-					light: '#b0b0b0',
-					dark: '#333333',
-					muted: '#6c757d',
-				},
-				border: {
-					DEFAULT: '#333333',
-					light: '#e0e0e0',
-					dark: '#1a1a1a',
-				},
+			// Apple Dark Mode Palette
+			apple: {
+				black: '#000000', // Pure Black - Primary Background (OLED)
+				elevated1: '#161618', // Dark Elevated 1 - Primary Surface/Standard Background
+				elevated2: '#212124', // Dark Elevated 2 - Secondary Surface/Higher Elevation
+				white: '#ffffff', // Pure White - Primary Text/Glyphs
+				gray: '#818181', // Mid-Gray - Secondary/Tertiary Text, Disabled States
 			},
-			// Typography
+			background: {
+				DEFAULT: '#161618', // Apple Dark Elevated 1 - Primary Surface
+				alt: '#212124', // Apple Dark Elevated 2 - Secondary Surface
+				elevated: '#212124', // Apple Dark Elevated 2
+				black: '#000000', // Apple Pure Black - Deepest layers
+				light: '#ffffff',
+				lightAlt: '#f8f8f8',
+			},
+			text: {
+				DEFAULT: '#ffffff', // Apple Pure White - Primary Text
+				light: '#818181', // Apple Mid-Gray - Secondary Text
+				dark: '#000000', // Black for light mode
+				muted: '#818181', // Apple Mid-Gray - Tertiary/Disabled Text
+				white: '#ffffff',
+				black: '#000000',
+			},
+			border: {
+				DEFAULT: '#000000',
+				light: '#000000',
+				dark: '#ffffff',
+			},
+			},
+			// Typography - Brand Font
 			fontFamily: {
 				sans: [
+					'lulo-clean-w01-one-bold',
 					'-apple-system',
 					'BlinkMacSystemFont',
 					'Segoe UI',
@@ -70,11 +82,11 @@ export default {
 			},
 			fontSize: {
 				'heading-1': ['3rem', { lineHeight: '1.2', fontWeight: '700' }],
-				'heading-2': ['2.5rem', { lineHeight: '1.3', fontWeight: '600' }],
-				'heading-3': ['2rem', { lineHeight: '1.4', fontWeight: '600' }],
-				'heading-4': ['1.5rem', { lineHeight: '1.4', fontWeight: '600' }],
-				'heading-5': ['1.25rem', { lineHeight: '1.5', fontWeight: '600' }],
-				'heading-6': ['1rem', { lineHeight: '1.5', fontWeight: '600' }],
+				'heading-2': ['2.5rem', { lineHeight: '1.3', fontWeight: '700' }],
+				'heading-3': ['2rem', { lineHeight: '1.4', fontWeight: '700' }],
+				'heading-4': ['1.5rem', { lineHeight: '1.4', fontWeight: '700' }],
+				'heading-5': ['1.25rem', { lineHeight: '1.5', fontWeight: '700' }],
+				'heading-6': ['1rem', { lineHeight: '1.5', fontWeight: '700' }],
 				lead: ['1.25rem', { lineHeight: '1.75' }],
 				body: ['1rem', { lineHeight: '1.75' }],
 				small: ['0.875rem', { lineHeight: '1.5' }],

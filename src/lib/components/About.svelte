@@ -25,7 +25,7 @@
 			</div>
 			<div class="photo">
 				<img
-					src="/team.webp"
+					src="/homepage-images/team.webp"
 					alt="Team 10951"
 					loading="lazy"
 					decoding="async"
@@ -46,6 +46,42 @@
 		align-items: stretch;
 	}
 
+	/* Two-column layout for medium screens - progressively reduce image column */
+	@media (max-width: 1024px) {
+		.about-grid {
+			grid-template-columns: 1fr 380px;
+			gap: 2.5rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.about-grid {
+			grid-template-columns: 1fr 340px;
+			gap: 2rem;
+		}
+	}
+
+	/* Switch to single column at 800px to ensure image always fits the screen */
+	@media (max-width: 800px) {
+		.about-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.photo {
+			order: -1;
+			justify-content: center;
+		}
+
+		.photo img {
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+			max-height: 400px;
+			object-fit: contain;
+		}
+	}
+
 	.title {
 		font-size: 2.5rem;
 		font-weight: 300;
@@ -55,11 +91,19 @@
 		color: var(--color-text-dark);
 	}
 
+	:global(.dark) .title {
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
 	.text p {
 		font-size: 1.1rem;
 		line-height: 1.8;
 		color: #555;
 		margin: 0 0 2rem 0;
+	}
+
+	:global(.dark) .text p {
+		color: #ffffff; /* Apple Pure White - Primary Text */
 	}
 
 	.stats-grid {
@@ -84,6 +128,10 @@
 		line-height: 1;
 	}
 
+	:global(.dark) .stat .number {
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
 	.stat small {
 		font-size: 1rem;
 		color: var(--color-text-muted);
@@ -92,32 +140,61 @@
 		margin-top: 0.5rem;
 	}
 
+	:global(.dark) .stat small {
+		color: #818181; /* Apple Mid-Gray - Secondary Text */
+	}
+
 	.photo {
 		width: 100%;
 		height: 100%;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.photo img {
 		width: 100%;
 		height: 100%;
+		max-width: 420px;
 		object-fit: cover;
 		object-position: center;
+		border-radius: 8px;
 	}
 
-	@media (max-width: 968px) {
-		.about-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
+	/* Ensure image fits in two-column layout - scales down progressively */
+	@media (max-width: 1024px) {
+		.photo img {
+			max-width: 380px;
 		}
+	}
 
-		.photo {
-			order: -1;
+	@media (max-width: 900px) {
+		.photo img {
+			max-width: 340px;
+		}
+	}
+
+	/* At 800px and below, image is in single column and uses full width */
+	@media (max-width: 800px) {
+		.photo img {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	/* Mobile optimizations - already in single column from 768px */
+	@media (max-width: 640px) {
+		.photo img {
+			max-height: 350px;
 		}
 
 		.title {
 			font-size: 2rem;
+			text-align: center;
+		}
+
+		.text {
+			text-align: center;
 		}
 
 		.text p {
@@ -138,7 +215,20 @@
 		}
 	}
 
-	@media (max-width: 600px) {
+	/* Extra small screens - single column stats */
+	@media (max-width: 480px) {
+		.about-grid {
+			gap: 1.5rem;
+		}
+
+		.title {
+			font-size: 1.75rem;
+		}
+
+		.photo img {
+			max-height: 300px;
+		}
+
 		.stats-grid {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
@@ -146,6 +236,10 @@
 
 		.stat-last {
 			grid-column: 1;
+		}
+
+		.stat .number {
+			font-size: 2.5rem;
 		}
 	}
 </style>

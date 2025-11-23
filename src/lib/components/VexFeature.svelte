@@ -7,7 +7,7 @@
 		{
 			name: '1599W',
 			description: 'cycles between all the teams',
-			image: '/vex.webp',
+			image: '/STEM-community-images/vex.webp',
 			link: '/vex/1599w',
 		},
 		{
@@ -19,7 +19,7 @@
 		{
 			name: '1599X',
 			description: 'pushing the boundaries of robotics innovation',
-			image: '/vex.webp',
+			image: '/STEM-community-images/vex.webp',
 			link: '/vex/1599x',
 		},
 		{
@@ -31,7 +31,7 @@
 		{
 			name: '1599Z',
 			description: 'the culmination of our VEX program with excellence and mentorship',
-			image: '/vex.webp',
+			image: '/STEM-community-images/vex.webp',
 			link: '/vex/1599z',
 		},
 	];

@@ -1,17 +1,57 @@
 <script>
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
+
+	let isDark = false;
+
+	// Get FIRST logo based on dark mode
+	$: firstLogoSrc = isDark
+		? '/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp'
+		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp';
+
 	// Sponsor logos from static folder
-	const slides = [
-		{ src: '/coca-cola-logo.webp', alt: 'Coca-Cola' },
-		{ src: '/frc-logo.webp', alt: 'FIRST Robotics Competition' },
-		{ src: '/ssis-logo.webp', alt: 'Saigon South International School' },
-		{ src: '/WIPLib-logo.webp', alt: 'WIPLib' },
-		{ src: '/lockheed-martin-logo.webp', alt: 'Lockheed Martin' },
-		{ src: '/palantir-logo.webp', alt: 'Palantir' },
-		{ src: '/boeing-logo.webp', alt: 'Boeing' },
+	$: slides = [
+		{ src: '/sponsor-logos/coca-cola-logo.webp', alt: 'Coca-Cola' },
+		{ src: firstLogoSrc, alt: 'FIRST Robotics Competition' },
+		{ src: '/ssis-logos/ssis-logo.webp', alt: 'Saigon South International School' },
+		{ src: '/sponsor-logos/WIPLib-logo.webp', alt: 'WIPLib' },
+		{ src: '/sponsor-logos/lockheed-martin-logo.webp', alt: 'Lockheed Martin' },
+		{ src: '/sponsor-logos/palantir-logo.webp', alt: 'Palantir' },
+		{ src: '/sponsor-logos/boeing-logo.webp', alt: 'Boeing' },
 	];
 
 	// Duplicate slides for seamless loop
-	const duplicatedSlides = [...slides, ...slides];
+	$: duplicatedSlides = [...slides, ...slides];
+
+	onMount(() => {
+		if (browser) {
+			// Check initial dark mode state
+			isDark = document.documentElement.classList.contains('dark');
+
+			// Listen for theme changes
+			const handleThemeChange = () => {
+				isDark = document.documentElement.classList.contains('dark');
+			};
+
+			window.addEventListener('themechange', handleThemeChange);
+			window.addEventListener('themeChange', handleThemeChange);
+
+			// Watch for class changes
+			const observer = new MutationObserver(() => {
+				isDark = document.documentElement.classList.contains('dark');
+			});
+			observer.observe(document.documentElement, {
+				attributes: true,
+				attributeFilter: ['class']
+			});
+
+			return () => {
+				window.removeEventListener('themechange', handleThemeChange);
+				window.removeEventListener('themeChange', handleThemeChange);
+				observer.disconnect();
+			};
+		}
+	});
 </script>
 
 <section class="sponsors">
@@ -26,6 +66,7 @@
 						decoding="async"
 						width="200"
 						height="120"
+						class="img-no-filter"
 					/>
 				</div>
 			{/each}
@@ -37,9 +78,14 @@
 	.sponsors {
 		padding: 0;
 		margin: 0;
-		background: #f8f8f8;
+		background: #f8f8f8; /* Light mode background */
 		overflow: hidden;
 		width: 100%;
+		position: relative;
+	}
+
+	:global(.dark) .sponsors {
+		background: #161618 !important; /* Apple Dark Elevated 1 - Primary Surface */
 	}
 
 	.carousel-wrapper {
@@ -47,6 +93,11 @@
 		margin: 0;
 		overflow: hidden;
 		position: relative;
+		background: inherit; /* Inherit from .sponsors */
+	}
+
+	:global(.dark) .carousel-wrapper {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
 	}
 
 	.carousel-track {
@@ -79,8 +130,16 @@
 		aspect-ratio: 5 / 3;
 	}
 
+	:global(.dark) .logo-item img {
+		filter: grayscale(0.3) brightness(1.2);
+	}
+
 	.logo-item:hover img {
 		filter: grayscale(0);
+	}
+
+	:global(.dark) .logo-item:hover img {
+		filter: grayscale(0) brightness(1.3);
 	}
 
 	@keyframes scroll {

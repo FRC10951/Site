@@ -2,7 +2,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
-	const heroImage = '/hero.webp';
+	const heroImage = '/homepage-images/hero.webp';
 	/** @type {HTMLElement | null} */
 	let heroElement;
 	let isVisible = false;
@@ -81,11 +81,11 @@
 	<div class="hero-overlay"></div>
 	<div class="hero-content">
 		{#if isVisible}
-			<h1 class="team-number" transition:fly={{ y: 50, duration: 1000, delay: 200 }}>10951</h1>
-			<h2 class="team-name" transition:fly={{ y: 30, duration: 1000, delay: 400 }}>
+			<h1 class="team-number !text-white" transition:fly={{ y: 50, duration: 1000, delay: 200 }}>10951</h1>
+			<h2 class="team-name !text-white" transition:fly={{ y: 30, duration: 1000, delay: 400 }}>
 				Saigon South Dragons
 			</h2>
-			<p class="micro" transition:fly={{ y: 20, duration: 1000, delay: 600 }}>
+			<p class="micro !text-white" transition:fly={{ y: 20, duration: 1000, delay: 600 }}>
 				Competing in FIRST Robotics Competition, representing Saigon South International School
 			</p>
 		{/if}
@@ -106,8 +106,12 @@
 		color: white;
 		overflow: hidden;
 		margin-top: 0;
-		background-color: #1a1a1a;
+		background-color: #000000; /* Apple Pure Black - Deepest layers */
 		--scroll-offset: 0px;
+	}
+
+	:global(.dark) .hero {
+		background-color: #000000; /* Apple Pure Black - Deepest layers */
 	}
 
 	.hero-bg {
@@ -302,6 +306,22 @@
 		letter-spacing: 0.02em;
 		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 		opacity: 0.95;
+		color: #ffffff !important; /* Always white - override any global styles */
+	}
+
+	/* Ensure all hero text elements are white */
+	.hero h1,
+	.hero h2,
+	.hero p,
+	.hero div {
+		color: #ffffff !important;
+	}
+
+	/* Specific overrides for hero section elements */
+	.hero .team-number,
+	.hero .team-name,
+	.hero .micro {
+		color: #ffffff !important;
 	}
 
 	.micro {
@@ -313,6 +333,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+		color: #ffffff !important; /* Always white - override any global styles */
 	}
 
 	.scroll-indicator {

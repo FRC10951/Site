@@ -7,7 +7,7 @@
 
 	onMount(() => {
 		if (!imageElement) return;
-		return lazyLoadImage('/full-STEAM-ahead.webp', imageElement);
+		return lazyLoadImage('/homepage-images/full-STEAM-ahead.webp', imageElement);
 	});
 </script>
 
@@ -83,6 +83,10 @@
 		width: 100%;
 	}
 
+	:global(.dark) .events {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+	}
+
 	/* Section title uses global .section-title class */
 
 	.events-grid {
@@ -96,9 +100,13 @@
 		min-height: 500px;
 		border-radius: 8px;
 		overflow: hidden;
-		border: 2px solid black;
+		border: 2px solid #000000;
 		display: flex;
 		align-items: flex-end;
+	}
+
+	:global(.dark) .event-card {
+		border-color: #ffffff;
 	}
 
 	.event-background {
@@ -121,8 +129,16 @@
 		background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 	}
 
+	:global(.dark) .event-card.stemsters .event-background {
+		background: linear-gradient(135deg, #3a3a3a 0%, #4d4d4d 100%);
+	}
+
 	.event-card.open-doors .event-background {
 		background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+	}
+
+	:global(.dark) .event-card.open-doors .event-background {
+		background: linear-gradient(135deg, #3a3a3a 0%, #4d4d4d 100%);
 	}
 
 	.event-overlay {
@@ -208,6 +224,11 @@
 		color: #333;
 	}
 
+	:global(.dark) .event-content button:hover {
+		background: white;
+		color: #000000;
+	}
+
 	.event-card:hover .event-background {
 		transform: scale(1.02);
 	}
@@ -229,11 +250,23 @@
 		border-radius: 4px;
 	}
 
+	:global(.dark) .view-all-button {
+		border-color: #ffffff; /* Apple Pure White - Borders */
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
 	.view-all-button:hover {
 		background: #333;
 		color: white;
 		transform: translateY(-2px);
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	:global(.dark) .view-all-button:hover {
+		background: #ffffff;
+		color: #000000;
+		border-color: #ffffff;
+		box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 	}
 
 	@media (max-width: 968px) {

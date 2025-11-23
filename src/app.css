@@ -6,19 +6,18 @@
 
 @layer base {
 	:root {
-		/* Color Tokens */
-		--color-primary: #4a9eff;
-		--color-primary-dark: #0066cc;
-		--color-primary-light: #6bb0ff;
-		--color-primary-lighter: #8dc1ff;
+		/* Color Tokens - Brand Colors */
+		--color-primary: #0640aa;
+		--color-primary-dark: #042d7a;
+		--color-primary-light: #0a5cd4;
 
-		--color-secondary: #6c757d;
-		--color-secondary-dark: #5a6268;
-		--color-secondary-light: #868e96;
+		--color-secondary: #00b1eb;
+		--color-secondary-dark: #008bb8;
+		--color-secondary-light: #33c1f0;
 
-		--color-accent: #ff6b6b;
-		--color-accent-dark: #ee5a5a;
-		--color-accent-light: #ff8787;
+		--color-accent: #f6c846;
+		--color-accent-dark: #d4a83a;
+		--color-accent-light: #f8d468;
 
 		--color-success: #51cf66;
 		--color-success-dark: #40c057;
@@ -32,26 +31,35 @@
 		--color-error-dark: #ee5a5a;
 		--color-error-light: #ff8787;
 
-		--color-background: #121212;
-		--color-background-alt: #1a1a1a;
+		/* Apple Dark Mode Palette - Light Mode Defaults */
+		--color-apple-black: #000000;
+		--color-apple-elevated1: #161618;
+		--color-apple-elevated2: #212124;
+		--color-apple-white: #ffffff;
+		--color-apple-gray: #818181;
+
+		--color-background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+		--color-background-alt: #212124; /* Apple Dark Elevated 2 - Secondary Surface */
+		--color-background-elevated: #212124; /* Apple Dark Elevated 2 */
+		--color-background-black: #000000; /* Apple Pure Black */
 		--color-background-light: #ffffff;
 		--color-background-light-alt: #f8f8f8;
 
-		--color-text: #e0e0e0;
-		--color-text-light: #b0b0b0;
-		--color-text-dark: #333333;
-		--color-text-muted: #6c757d;
+		--color-text: #ffffff; /* Apple Pure White - Primary Text */
+		--color-text-light: #818181; /* Apple Mid-Gray - Secondary Text */
+		--color-text-dark: #000000;
+		--color-text-muted: #818181; /* Apple Mid-Gray - Tertiary/Disabled Text */
 
-		--color-border: #333333;
-		--color-border-light: #e0e0e0;
-		--color-border-dark: #1a1a1a;
+		--color-border: #000000;
+		--color-border-light: #000000;
+		--color-border-dark: #ffffff;
 
 		/* Spacing Tokens */
 		--spacing-section: 4rem;
 		--spacing-section-sm: 2rem;
 		--spacing-section-lg: 6rem;
 		--spacing-container-padding: 2rem;
-		--spacing-container-padding-sm: 1rem;
+		--spacing-container-padding-sm: 0.5rem;
 
 		/* Typography Tokens */
 		--font-size-heading-1: 3rem;
@@ -106,9 +114,9 @@
 		margin: 0;
 		padding: 0;
 		background: white;
-		color: #333;
+		color: #000000;
 		font-family:
-			-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+			'lulo-clean-w01-one-bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
@@ -153,6 +161,178 @@
 		}
 	}
 
+	/* Dark Mode Support - Apple Dark Mode Palette */
+	.dark {
+		/* Apple Dark Mode Background Hierarchy */
+		--color-background: #161618; /* Apple Dark Elevated 1 - Primary Surface/Standard Background */
+		--color-background-alt: #212124; /* Apple Dark Elevated 2 - Secondary Surface/Higher Elevation */
+		--color-background-elevated: #212124; /* Apple Dark Elevated 2 - Toolbars, nav bars, popovers */
+		--color-background-black: #000000; /* Apple Pure Black - Deepest layers, OLED backgrounds */
+		--color-background-light: #161618; /* White becomes Apple Dark Elevated 1 */
+		--color-background-light-alt: #161618; /* Light gray becomes Apple Dark Elevated 1 */
+
+		/* Apple Dark Mode Text Hierarchy */
+		--color-text: #ffffff; /* Apple Pure White - Primary Text/High-emphasis */
+		--color-text-light: #818181; /* Apple Mid-Gray - Secondary/Tertiary Text */
+		--color-text-dark: #ffffff; /* Black text becomes Apple Pure White */
+		--color-text-muted: #818181; /* Apple Mid-Gray - Placeholder, disabled, dividers */
+
+		/* Border Inversion: Black becomes White */
+		--color-border: #ffffff;
+		--color-border-light: #ffffff; /* Black border becomes white */
+		--color-border-dark: #000000;
+
+		/* Primary Colors - Adjusted for dark mode */
+		--color-primary: #0a5cd4;
+		--color-primary-dark: #0640aa;
+		--color-primary-light: #33c1f0;
+
+		/* Secondary Colors - Adjusted for dark mode */
+		--color-secondary: #33c1f0;
+		--color-secondary-dark: #00b1eb;
+		--color-secondary-light: #66d1f5;
+
+		/* Accent Colors - Adjusted for dark mode */
+		--color-accent: #f8d468;
+		--color-accent-dark: #f6c846;
+		--color-accent-light: #fae085;
+	}
+
+	.dark body {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
+	/* Section Background Inversion - Apple Dark Mode */
+	.dark .bg-white,
+	.dark section.bg-white {
+		background: #161618 !important; /* Apple Dark Elevated 1 - Primary Surface */
+		color: #ffffff !important;
+	}
+
+	.dark .bg-light,
+	.dark section.bg-light {
+		background: #161618 !important; /* Apple Dark Elevated 1 - Primary Surface */
+		color: #ffffff !important;
+	}
+
+	/* Card Inversion - Apple Dark Mode */
+	.dark .card {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
+	/* Input Inversion - Apple Dark Mode */
+	.dark .input,
+	.dark .textarea {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+		color: #ffffff; /* Apple Pure White - Primary Text */
+		border-color: #ffffff;
+	}
+
+	.dark .input:focus,
+	.dark .textarea:focus {
+		border-color: var(--color-primary);
+		box-shadow: 0 0 0 3px rgba(10, 92, 212, 0.1);
+	}
+
+	/* Text Color Inversion - Apple Dark Mode */
+	.dark .text-muted {
+		color: #818181; /* Apple Mid-Gray - Secondary/Tertiary Text */
+	}
+
+	.dark h1,
+	.dark h2,
+	.dark h3,
+	.dark h4,
+	.dark h5,
+	.dark h6,
+	.dark p,
+	.dark span,
+	.dark div {
+		color: #ffffff;
+	}
+
+	/* Heading specific overrides - Black in light mode, White in dark mode */
+	.heading-1,
+	.heading-2,
+	.heading-3,
+	.heading-4,
+	.heading-5,
+	.heading-6 {
+		color: #000000;
+	}
+
+	.dark .heading-1,
+	.dark .heading-2,
+	.dark .heading-3,
+	.dark .heading-4,
+	.dark .heading-5,
+	.dark .heading-6 {
+		color: #ffffff;
+	}
+
+	/* All H tags - Black in light mode, White in dark mode */
+	h1, h2, h3, h4, h5, h6 {
+		color: #000000;
+	}
+
+	.dark h1,
+	.dark h2,
+	.dark h3,
+	.dark h4,
+	.dark h5,
+	.dark h6 {
+		color: #ffffff;
+	}
+
+	/* Hero section - Always white text regardless of theme */
+	.hero h1,
+	.hero h2,
+	.hero h3,
+	.hero h4,
+	.hero h5,
+	.hero h6,
+	.hero p,
+	.hero span,
+	.hero div,
+	.hero .team-name,
+	.hero .team-number,
+	.hero .micro {
+		color: #ffffff !important;
+	}
+
+	.dark .hero h1,
+	.dark .hero h2,
+	.dark .hero h3,
+	.dark .hero h4,
+	.dark .hero h5,
+	.dark .hero h6,
+	.dark .hero p,
+	.dark .hero span,
+	.dark .hero div,
+	.dark .hero .team-name,
+	.dark .hero .team-number,
+	.dark .hero .micro {
+		color: #ffffff !important;
+	}
+
+	.section-title {
+		color: #000000;
+	}
+
+	.dark .section-title {
+		color: #ffffff;
+	}
+
+	.dark .section-header h2 {
+		color: #ffffff;
+	}
+
+	.dark .section-header p {
+		color: #818181; /* Apple Mid-Gray - Secondary Text */
+	}
+
 	/* Button Classes */
 	.btn {
 		display: inline-flex;
@@ -188,6 +368,17 @@
 		transform: translateY(0);
 	}
 
+	.dark .btn-primary {
+		background-color: var(--color-primary);
+		color: #ffffff;
+		border-color: var(--color-primary);
+	}
+
+	.dark .btn-primary:hover {
+		background-color: var(--color-primary-light);
+		border-color: var(--color-primary-light);
+	}
+
 	.btn-secondary {
 		background-color: var(--color-secondary);
 		color: white;
@@ -199,6 +390,17 @@
 		border-color: var(--color-secondary-dark);
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-md);
+	}
+
+	.dark .btn-secondary {
+		background-color: var(--color-secondary);
+		color: #ffffff;
+		border-color: var(--color-secondary);
+	}
+
+	.dark .btn-secondary:hover {
+		background-color: var(--color-secondary-light);
+		border-color: var(--color-secondary-light);
 	}
 
 	.btn-outline {
@@ -214,6 +416,18 @@
 		box-shadow: var(--shadow-md);
 	}
 
+	.dark .btn-outline {
+		background-color: transparent;
+		color: #ffffff; /* White text in dark mode */
+		border-color: #ffffff; /* White border in dark mode */
+	}
+
+	.dark .btn-outline:hover {
+		background-color: #ffffff; /* White background on hover */
+		color: #000000; /* Black text on hover */
+		border-color: #ffffff;
+	}
+
 	.btn-ghost {
 		background-color: transparent;
 		color: var(--color-text-dark);
@@ -222,6 +436,16 @@
 
 	.btn-ghost:hover {
 		background-color: rgba(0, 0, 0, 0.05);
+	}
+
+	.dark .btn-ghost {
+		background-color: transparent;
+		color: #ffffff;
+		border-color: transparent;
+	}
+
+	.dark .btn-ghost:hover {
+		background-color: rgba(255, 255, 255, 0.1);
 	}
 
 	.btn:disabled {
@@ -237,6 +461,12 @@
 		padding: 2rem;
 		box-shadow: var(--shadow-card);
 		transition: all var(--transition-base) var(--transition-easing);
+		color: #000000;
+	}
+
+	.dark .card {
+		background: var(--color-background-alt);
+		color: #ffffff;
 	}
 
 	.card-hover {
@@ -269,10 +499,14 @@
 
 	.section-header h2 {
 		font-size: var(--font-size-heading-2);
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-bold);
 		line-height: var(--line-height-heading);
 		margin: 0 0 1rem 0;
-		color: var(--color-text-dark);
+		color: #000000; /* Black in light mode */
+	}
+
+	.dark .section-header h2 {
+		color: #ffffff; /* White in dark mode */
 	}
 
 	.section-header p {
@@ -284,10 +518,14 @@
 
 	.section-title {
 		font-size: var(--font-size-heading-2);
-		font-weight: var(--font-weight-light);
+		font-weight: var(--font-weight-bold);
 		text-align: center;
 		margin: 0 0 3rem 0;
-		color: var(--color-text-dark);
+		color: #000000; /* Black in light mode */
+	}
+
+	.dark .section-title {
+		color: #ffffff; /* White in dark mode */
 	}
 
 	@media (max-width: 768px) {
@@ -317,41 +555,46 @@
 	.heading-2 {
 		font-size: var(--font-size-heading-2);
 		line-height: var(--line-height-heading);
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-bold);
 		margin: 0;
 	}
 
 	.heading-3 {
 		font-size: var(--font-size-heading-3);
 		line-height: var(--line-height-heading);
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-bold);
 		margin: 0;
 	}
 
 	.heading-4 {
 		font-size: var(--font-size-heading-4);
 		line-height: var(--line-height-tight);
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-bold);
 		margin: 0;
 	}
 
 	.heading-5 {
 		font-size: var(--font-size-heading-5);
 		line-height: var(--line-height-tight);
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-bold);
 		margin: 0;
 	}
 
 	.heading-6 {
 		font-size: var(--font-size-heading-6);
 		line-height: var(--line-height-tight);
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-bold);
 		margin: 0;
 	}
 
 	.text-lead {
 		font-size: var(--font-size-lead);
 		line-height: var(--line-height-body);
+		color: #000000;
+	}
+
+	.dark .text-lead {
+		color: #ffffff;
 	}
 
 	.text-muted {
@@ -392,7 +635,7 @@
 	.input:focus {
 		outline: none;
 		border-color: var(--color-primary);
-		box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+		box-shadow: 0 0 0 3px rgba(6, 64, 170, 0.1);
 	}
 
 	.input::placeholder {
@@ -416,7 +659,7 @@
 	.textarea:focus {
 		outline: none;
 		border-color: var(--color-primary);
-		box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+		box-shadow: 0 0 0 3px rgba(6, 64, 170, 0.1);
 	}
 
 	.label {
@@ -504,6 +747,8 @@
 		width: 100%;
 		height: auto;
 		display: block;
+		/* Default image filters per brand guidelines */
+		filter: brightness(0.8) contrast(1.1) saturate(1.1);
 	}
 
 	.img-rounded {
@@ -516,6 +761,11 @@
 
 	.img-shadow-lg {
 		box-shadow: var(--shadow-lg);
+	}
+
+	/* Image filter override for images that shouldn't have filters */
+	.img-no-filter {
+		filter: none;
 	}
 
 	/* Flex Utility Classes */
@@ -641,18 +891,99 @@
 		border-bottom: 1px solid var(--color-border-light);
 	}
 
-	/* Background Utility Classes */
+	.dark .border-top,
+	.dark .border-bottom,
+	.dark .border-y {
+		border-color: #ffffff;
+	}
+
+	/* Background Utility Classes - Apple Dark Mode */
 	.bg-white {
 		background: white;
+	}
+
+	.dark .bg-white {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
 	}
 
 	.bg-light {
 		background: var(--color-background-light-alt);
 	}
 
+	.dark .bg-light {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+	}
+
 	.bg-dark {
 		background: var(--color-background);
 		color: var(--color-text);
+	}
+
+	.dark .bg-dark {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+		color: #ffffff; /* Apple Pure White - Primary Text */
+	}
+
+	/* Apple Dark Mode Elevated Surfaces */
+	.bg-elevated {
+		background: var(--color-background-elevated);
+	}
+
+	.dark .bg-elevated {
+		background: #212124; /* Apple Dark Elevated 2 - Toolbars, nav bars, popovers */
+	}
+
+	.bg-elevated-1 {
+		background: var(--color-background);
+	}
+
+	.dark .bg-elevated-1 {
+		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+	}
+
+	.bg-elevated-2 {
+		background: var(--color-background-alt);
+	}
+
+	.dark .bg-elevated-2 {
+		background: #212124; /* Apple Dark Elevated 2 - Secondary Surface */
+	}
+
+	.bg-black {
+		background: #000000;
+	}
+
+	.dark .bg-black {
+		background: #000000; /* Apple Pure Black - Deepest layers, OLED */
+	}
+
+	/* Text Color Utility Classes - Explicit Dark/Light Mode */
+	.text-white {
+		color: #ffffff;
+	}
+
+	.text-black {
+		color: #000000;
+	}
+
+	.dark .text-black {
+		color: #ffffff;
+	}
+
+	.text-dark {
+		color: #000000;
+	}
+
+	.dark .text-dark {
+		color: #ffffff;
+	}
+
+	.text-light {
+		color: #ffffff;
+	}
+
+	.dark .text-light {
+		color: #ffffff;
 	}
 
 	/* Overflow Utility Classes */
