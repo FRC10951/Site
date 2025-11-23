@@ -42,6 +42,7 @@
 	let imageElement: HTMLElement | undefined;
 	let isTransitioning = false;
 	let autoAdvanceInterval: ReturnType<typeof setInterval> | null = null;
+	let isFadingOut = false;
 
 	$: currentTeam = teams[currentIndex];
 
@@ -72,11 +73,11 @@
 	function loadImage() {
 		if (!imageElement) return;
 		// Fade out current image
-		imageElement.classList.add('fade-out');
+		isFadingOut = true;
 		setTimeout(() => {
 			if (imageElement) {
 				lazyLoadImage(currentTeam.image, imageElement);
-				imageElement.classList.remove('fade-out');
+				isFadingOut = false;
 			}
 		}, 250);
 	}
@@ -121,7 +122,7 @@
 </script>
 
 <section class="vex-feature">
-	<div class="vex-feature-bg" bind:this={imageElement}></div>
+	<div class="vex-feature-bg" class:fade-out={isFadingOut} bind:this={imageElement}></div>
 	<div class="vex-feature-overlay"></div>
 	<div class="vex-feature-navigation">
 		<button

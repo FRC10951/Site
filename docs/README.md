@@ -5,6 +5,7 @@ This folder contains all project documentation.
 ## Files
 
 - **README.md** - This file (documentation index)
+- **BRANDING.md** - Comprehensive brand guidelines (colors, typography, logos, visual style, and brand identity)
 - **STYLING.md** - Complete styling system documentation (design principles, tokens, components, utilities, and best practices)
 - **BREAKPOINTS.md** - Responsive breakpoints and patterns
 - **DEVELOPMENT.md** - Development guide and setup instructions
@@ -14,6 +15,7 @@ This folder contains all project documentation.
 
 ### Styling & Design
 
+- **[BRANDING.md](./BRANDING.md)** - Brand guidelines, color system, typography, logo usage, and visual identity
 - **[STYLING.md](./STYLING.md)** - Complete styling system, design principles, design tokens, component classes, and best practices
 - **[BREAKPOINTS.md](./BREAKPOINTS.md)** - Responsive breakpoints and mobile-first patterns
 
@@ -26,8 +28,9 @@ This folder contains all project documentation.
 
 ### For Styling & Design
 
-Start with **[STYLING.md](./STYLING.md)** which includes:
+Start with **[BRANDING.md](./BRANDING.md)** for brand identity and guidelines, then refer to:
 
+**[STYLING.md](./STYLING.md)** which includes:
 - Design philosophy and principles
 - Complete design token reference (colors, typography, spacing, shadows, etc.)
 - Global component classes and utilities

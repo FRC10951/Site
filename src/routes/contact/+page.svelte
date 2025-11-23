@@ -7,14 +7,14 @@
 	function handleSubmit(e: Event) {
 		e.preventDefault();
 		const target = e.target as HTMLFormElement;
-		const formData = new FormData(target);
-		const data = {
-			name: formData.get('name'),
-			email: formData.get('email'),
-			message: formData.get('message'),
-		};
-
 		// TODO: Implement form submission to backend API
+		// const formData = new FormData(target);
+		// const data = {
+		// 	name: formData.get('name'),
+		// 	email: formData.get('email'),
+		// 	message: formData.get('message'),
+		// };
+
 		// For now, show success message
 		alert('Thank you for your message! We will get back to you soon.');
 		target.reset();
