@@ -198,8 +198,9 @@
 		min-height: 650px;
 		background: transparent;
 		gap: 1.5rem;
-		margin: 0;
+		margin: 0 auto 3rem;
 		padding: 0;
+		max-width: 95%;
 		width: 100%;
 		border: none;
 		border-radius: 8px;
@@ -273,12 +274,11 @@
 
 	.stem-community {
 		margin: 0 auto;
-		max-width: 95%;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: 2rem 0;
+		padding: 4rem 2rem;
 	}
 
 	.stem-community-heading {
@@ -300,7 +300,7 @@
 	@media (max-width: 768px) {
 		.stem-community {
 			margin: 0 auto;
-			padding: 1.5rem 0;
+			padding: 3rem 1.5rem;
 		}
 
 		.stem-community-heading {
