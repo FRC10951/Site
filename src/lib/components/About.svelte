@@ -4,9 +4,9 @@
 			<div class="text">
 				<h3 class="title">About the Team</h3>
 				<p class="text-lead mb-4">
-					Team 10951, the Saigon South Dragons, is a competitive robotics team representing Saigon South
-					International School. We compete in FIRST Robotics Competition, bringing together students
-					passionate about STEM, engineering, and innovation.
+					Team 10951, the Saigon South Dragons, is a competitive robotics team representing Saigon
+					South International School. We compete in FIRST Robotics Competition, bringing together
+					students passionate about STEM, engineering, and innovation.
 				</p>
 				<div class="stats-grid">
 					<div class="stat">

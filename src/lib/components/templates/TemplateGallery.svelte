@@ -73,7 +73,9 @@
 		aspect-ratio: 4 / 3;
 		cursor: pointer;
 		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
 	}
 
 	.gallery-item:hover {
@@ -148,4 +150,3 @@
 		}
 	}
 </style>
-

@@ -11,36 +11,43 @@ This directory contains all the pages and routes for the website. SvelteKit uses
 ## Main Pages
 
 ### About
+
 - **Location:** `about/+page.svelte`
 - **URL:** `/about`
 - **Description:** Information about the team
 
 ### Contact
+
 - **Location:** `contact/+page.svelte`
 - **URL:** `/contact`
 - **Description:** Contact form page
 
 ### FRC (FIRST Robotics Competition)
+
 - **Location:** `frc/+page.svelte`
 - **URL:** `/frc`
 - **Description:** FRC team information
 
 ### VEX Robotics
+
 - **Location:** `vex/+page.svelte`
 - **URL:** `/vex`
 - **Description:** VEX Robotics overview
 
 ### Media
+
 - **Location:** `media/+page.svelte`
 - **URL:** `/media`
 - **Description:** Media gallery and resources
 
 ### STEM Community
+
 - **Location:** `stem-community/+page.svelte`
 - **URL:** `/stem-community`
 - **Description:** STEM community information
 
 ### Templates
+
 - **Location:** `templates/+page.svelte`
 - **URL:** `/templates`
 - **Description:** Template components showcase
@@ -48,20 +55,24 @@ This directory contains all the pages and routes for the website. SvelteKit uses
 ## Project Pages
 
 ### Projects
+
 - **Location:** `projects/`
 - **URL:** `/projects/*`
 
 #### EmpowerTech
+
 - **Location:** `projects/empowertech/+page.svelte`
 - **URL:** `/projects/empowertech`
 
 #### Robokids
+
 - **Location:** `projects/robokids/+page.svelte`
 - **URL:** `/projects/robokids`
 
 ## VEX Season Pages
 
 ### VEX Seasons (1599v, 1599w, 1599x, 1599y, 1599z)
+
 - **Location:** `vex/[season]/+page.svelte`
 - **URL:** `/vex/[season]`
 - **Examples:**
@@ -74,6 +85,7 @@ This directory contains all the pages and routes for the website. SvelteKit uses
 ## API Routes
 
 ### Health Check
+
 - **Location:** `api/health/+server.ts`
 - **URL:** `/api/health`
 - **Description:** Health check endpoint
@@ -97,7 +109,7 @@ This directory contains all the pages and routes for the website. SvelteKit uses
 3. The route will be available at `/[folder-name]`
 
 Example: To create a `/news` page:
+
 ```
 src/routes/news/+page.svelte
 ```
-

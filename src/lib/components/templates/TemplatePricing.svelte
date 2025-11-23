@@ -85,7 +85,9 @@
 		border-radius: 8px;
 		padding: 2.5rem;
 		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -202,4 +204,3 @@
 		}
 	}
 </style>
-

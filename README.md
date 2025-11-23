@@ -113,6 +113,7 @@ Create new files in `src/routes/`:
 - `src/routes/blog/+page.svelte` → `/blog`
 
 **📖 For detailed routes documentation, see:**
+
 - `src/routes/README.md` - Complete routes reference
 - `src/routes/STRUCTURE.md` - Visual directory structure
 

@@ -8,7 +8,9 @@
 		<div class="testimonials-grid">
 			<div class="testimonial-card">
 				<div class="testimonial-content">
-					<p class="quote">"This is an amazing product that has transformed how we work. Highly recommended!"</p>
+					<p class="quote">
+						"This is an amazing product that has transformed how we work. Highly recommended!"
+					</p>
 				</div>
 				<div class="testimonial-author">
 					<div class="author-avatar">JD</div>
@@ -20,7 +22,9 @@
 			</div>
 			<div class="testimonial-card">
 				<div class="testimonial-content">
-					<p class="quote">"Outstanding service and support. The team goes above and beyond every time."</p>
+					<p class="quote">
+						"Outstanding service and support. The team goes above and beyond every time."
+					</p>
 				</div>
 				<div class="testimonial-author">
 					<div class="author-avatar">JS</div>
@@ -32,7 +36,9 @@
 			</div>
 			<div class="testimonial-card">
 				<div class="testimonial-content">
-					<p class="quote">"The best investment we've made this year. Results speak for themselves."</p>
+					<p class="quote">
+						"The best investment we've made this year. Results speak for themselves."
+					</p>
 				</div>
 				<div class="testimonial-author">
 					<div class="author-avatar">MJ</div>
@@ -86,7 +92,9 @@
 		flex-direction: column;
 		justify-content: space-between;
 		min-height: 250px;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
 	}
 
 	.testimonial-card:hover {
@@ -141,7 +149,6 @@
 		.template-testimonials {
 			padding: 3rem 1.5rem;
 		}
-
 	}
 
 	@media (max-width: 768px) {
@@ -150,4 +157,3 @@
 		}
 	}
 </style>
-

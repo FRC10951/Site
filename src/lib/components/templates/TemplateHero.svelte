@@ -118,7 +118,5 @@
 		.hero-actions {
 			flex-direction: column;
 		}
-
 	}
 </style>
-

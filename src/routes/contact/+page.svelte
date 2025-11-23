@@ -59,9 +59,7 @@
 					</div>
 
 					<div>
-						<label for="message" class="label">
-							Your Message
-						</label>
+						<label for="message" class="label"> Your Message </label>
 						<textarea
 							id="message"
 							name="message"

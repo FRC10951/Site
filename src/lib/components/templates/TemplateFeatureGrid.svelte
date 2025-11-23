@@ -44,7 +44,9 @@
 		padding: 2.5rem;
 		border-radius: 8px;
 		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
 		text-align: center;
 	}
 
@@ -92,4 +94,3 @@
 		}
 	}
 </style>
-

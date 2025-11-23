@@ -123,13 +123,13 @@
 	<Hero />
 	<Motto />
 	<SponsorsCarousel />
-	
+
 	<div bind:this={aboutElement}>
 		{#if About}
 			<svelte:component this={About} />
 		{/if}
 	</div>
-	
+
 	<div bind:this={firstAgeElement}>
 		{#if FirstAge}
 			<svelte:component this={FirstAge} />
@@ -168,13 +168,13 @@
 			<svelte:component this={CommunityProjects} />
 		{/if}
 	</div>
-	
+
 	<div bind:this={eventsElement}>
 		{#if Events}
 			<svelte:component this={Events} />
 		{/if}
 	</div>
-	
+
 	<div bind:this={ctaElement}>
 		{#if CTA}
 			<svelte:component this={CTA} />

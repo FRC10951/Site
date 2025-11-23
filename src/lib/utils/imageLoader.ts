@@ -56,4 +56,3 @@ export function lazyLoadImage(
 
 	return () => observer.disconnect();
 }
-

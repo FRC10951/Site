@@ -26,8 +26,9 @@
 					</div>
 					<h3>Full STEAM Ahead</h3>
 					<p>
-						Our commitment to Science, Technology, Engineering, Arts, and Mathematics education drives
-						everything we do. We're building a future where innovation and creativity go hand in hand.
+						Our commitment to Science, Technology, Engineering, Arts, and Mathematics education
+						drives everything we do. We're building a future where innovation and creativity go hand
+						in hand.
 					</p>
 					<button>Learn More</button>
 				</div>
@@ -277,4 +278,3 @@
 		}
 	}
 </style>
-

@@ -80,6 +80,7 @@
 		</nav>
 	{/if}
 </header>
+
 <style>
 	.site-header {
 		display: flex;
@@ -149,7 +150,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: opacity 0s, visibility 0s;
+		transition:
+			opacity 0s,
+			visibility 0s;
 	}
 
 	.hamburger-icon {
@@ -229,7 +232,9 @@
 		font-weight: 500;
 		padding: 1.5rem 0;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		transition: opacity 0.3s ease, padding-left 0.3s ease;
+		transition:
+			opacity 0.3s ease,
+			padding-left 0.3s ease;
 		display: block;
 	}
 
@@ -315,4 +320,3 @@
 		}
 	}
 </style>
-

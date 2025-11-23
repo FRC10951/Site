@@ -21,7 +21,10 @@
 				Empowering communities through technology education and innovation.
 			</p>
 		</div>
-		<a href="/projects/empowertech" class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark">
+		<a
+			href="/projects/empowertech"
+			class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark"
+		>
 			Learn More
 		</a>
 	</div>

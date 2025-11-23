@@ -10,11 +10,7 @@
 				</div>
 			</div>
 			<div class="decorative">
-				<img
-					src="/FIRST-AGE.webp"
-					alt="FIRST Age"
-					class="age-image"
-				/>
+				<img src="/FIRST-AGE.webp" alt="FIRST Age" class="age-image" />
 			</div>
 		</div>
 	</div>
@@ -63,7 +59,9 @@
 		object-position: center;
 		display: block;
 		filter: brightness(1) contrast(1);
-		transition: transform 0.3s ease, opacity 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			opacity 0.3s ease;
 	}
 
 	.age-image:hover {

@@ -24,7 +24,7 @@
 				}
 				const rect = heroElement.getBoundingClientRect();
 				const windowHeight = window.innerHeight;
-				
+
 				// Only apply parallax when hero is in view
 				if (rect.bottom >= 0 && rect.top <= windowHeight) {
 					const scrollY = window.scrollY;
@@ -81,9 +81,7 @@
 	<div class="hero-overlay"></div>
 	<div class="hero-content">
 		{#if isVisible}
-			<h1 class="team-number" transition:fly={{ y: 50, duration: 1000, delay: 200 }}>
-				10951
-			</h1>
+			<h1 class="team-number" transition:fly={{ y: 50, duration: 1000, delay: 200 }}>10951</h1>
 			<h2 class="team-name" transition:fly={{ y: 30, duration: 1000, delay: 400 }}>
 				Saigon South Dragons
 			</h2>
@@ -155,11 +153,7 @@
 		content: '';
 		position: absolute;
 		inset: -2px;
-		background: radial-gradient(
-			ellipse at center,
-			rgba(255, 255, 255, 0.1) 0%,
-			transparent 70%
-		);
+		background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
 		animation: pulseGlow 4s ease-in-out infinite;
 		z-index: 1;
 		pointer-events: none;
@@ -179,7 +173,8 @@
 	}
 
 	@keyframes pulseGlow {
-		0%, 100% {
+		0%,
+		100% {
 			opacity: 0.3;
 			transform: scale(1);
 		}
@@ -198,7 +193,7 @@
 		filter: brightness(0.8) contrast(1.1) saturate(1.1);
 		transform: scale(1.1);
 		transition: filter 0.3s ease;
-		animation: 
+		animation:
 			heroImageComplex 20s ease-in-out infinite,
 			heroImageColorShift 15s ease-in-out infinite alternate;
 		aspect-ratio: 16 / 9;

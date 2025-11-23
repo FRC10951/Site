@@ -5,10 +5,13 @@
 			<div class="card mb-8">
 				<h2 class="text-2xl font-bold mb-4 text-primary">About 1599W</h2>
 				<p class="text-text-light mb-4">
-					Team 1599W is our competitive VEX robotics team that operates on a rotating membership model. This unique approach ensures that all team members get hands-on experience in building, programming, and competing.
+					Team 1599W is our competitive VEX robotics team that operates on a rotating membership
+					model. This unique approach ensures that all team members get hands-on experience in
+					building, programming, and competing.
 				</p>
 				<p class="text-text-light">
-					By cycling team members through different roles and responsibilities, we ensure comprehensive learning and skill development for everyone involved.
+					By cycling team members through different roles and responsibilities, we ensure
+					comprehensive learning and skill development for everyone involved.
 				</p>
 			</div>
 
@@ -21,14 +24,17 @@
 					<li>Collaborative learning and skill development</li>
 				</ul>
 				<p class="text-text-light">
-					This model allows us to maximize participation while maintaining competitive performance, ensuring every student has the opportunity to contribute and grow.
+					This model allows us to maximize participation while maintaining competitive performance,
+					ensuring every student has the opportunity to contribute and grow.
 				</p>
 			</div>
 
 			<div class="card">
 				<h2 class="text-2xl font-bold mb-4 text-primary">Competition History</h2>
 				<p class="text-text-light mb-4">
-					Team 1599W has consistently performed well in VEX competitions, demonstrating technical excellence and strategic gameplay. Our rotating model has proven effective in building well-rounded robotics skills across all team members.
+					Team 1599W has consistently performed well in VEX competitions, demonstrating technical
+					excellence and strategic gameplay. Our rotating model has proven effective in building
+					well-rounded robotics skills across all team members.
 				</p>
 				<p class="text-text-light">
 					Check back soon for updates on our latest competitions and achievements!

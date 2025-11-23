@@ -5,112 +5,128 @@ A collection of reusable section templates for building modern websites. All com
 ## Available Templates
 
 ### 1. TemplateHero
+
 Full-width hero section with background image, overlay, and call-to-action buttons.
 
 **Location:** `TemplateHero.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateHero from '$lib/components/templates/TemplateHero.svelte';
+	import TemplateHero from '$lib/components/templates/TemplateHero.svelte';
 </script>
 
 <TemplateHero />
 ```
 
 ### 2. TemplateFeatureGrid
+
 3-column grid layout showcasing key features with icons and descriptions.
 
 **Location:** `TemplateFeatureGrid.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateFeatureGrid from '$lib/components/templates/TemplateFeatureGrid.svelte';
+	import TemplateFeatureGrid from '$lib/components/templates/TemplateFeatureGrid.svelte';
 </script>
 
 <TemplateFeatureGrid />
 ```
 
 ### 3. TemplateStats
+
 Statistics/metrics section with large numbers and labels. Great for showcasing achievements.
 
 **Location:** `TemplateStats.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateStats from '$lib/components/templates/TemplateStats.svelte';
+	import TemplateStats from '$lib/components/templates/TemplateStats.svelte';
 </script>
 
 <TemplateStats />
 ```
 
 ### 4. TemplateTestimonials
+
 Customer testimonials section with avatar placeholders and quotes.
 
 **Location:** `TemplateTestimonials.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateTestimonials from '$lib/components/templates/TemplateTestimonials.svelte';
+	import TemplateTestimonials from '$lib/components/templates/TemplateTestimonials.svelte';
 </script>
 
 <TemplateTestimonials />
 ```
 
 ### 5. TemplateImageText
+
 Alternating image and text sections. Perfect for storytelling or feature explanations.
 
 **Location:** `TemplateImageText.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateImageText from '$lib/components/templates/TemplateImageText.svelte';
+	import TemplateImageText from '$lib/components/templates/TemplateImageText.svelte';
 </script>
 
 <TemplateImageText />
 ```
 
 ### 6. TemplatePricing
+
 Pricing cards section with three tiers and feature lists.
 
 **Location:** `TemplatePricing.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplatePricing from '$lib/components/templates/TemplatePricing.svelte';
+	import TemplatePricing from '$lib/components/templates/TemplatePricing.svelte';
 </script>
 
 <TemplatePricing />
 ```
 
 ### 7. TemplateGallery
+
 Image gallery grid with hover effects and overlay information.
 
 **Location:** `TemplateGallery.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateGallery from '$lib/components/templates/TemplateGallery.svelte';
+	import TemplateGallery from '$lib/components/templates/TemplateGallery.svelte';
 </script>
 
 <TemplateGallery />
 ```
 
 ### 8. TemplateCTA
+
 Call-to-action section with gradient background and action buttons.
 
 **Location:** `TemplateCTA.svelte`
 
 **Usage:**
+
 ```svelte
 <script>
-  import TemplateCTA from '$lib/components/templates/TemplateCTA.svelte';
+	import TemplateCTA from '$lib/components/templates/TemplateCTA.svelte';
 </script>
 
 <TemplateCTA />
@@ -169,4 +185,3 @@ src/lib/components/templates/
 - Placeholder images use gradient backgrounds for visual reference
 - Components are self-contained with their own styles
 - No external dependencies required beyond SvelteKit
-

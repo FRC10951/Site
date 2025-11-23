@@ -10,7 +10,9 @@
 			<div class="card mb-8">
 				<h2 class="text-2xl font-bold mb-4 text-primary">Team 10951 in the Media</h2>
 				<p class="text-text-light mb-4">
-					Stay updated with our latest news, competition highlights, and team achievements. Follow our journey as we compete, innovate, and inspire the next generation of robotics enthusiasts.
+					Stay updated with our latest news, competition highlights, and team achievements. Follow
+					our journey as we compete, innovate, and inspire the next generation of robotics
+					enthusiasts.
 				</p>
 			</div>
 
@@ -20,19 +22,22 @@
 					<div class="border-l-4 border-primary pl-4">
 						<h3 class="text-xl font-semibold mb-2 text-primary">Competition Highlights</h3>
 						<p class="text-text-light">
-							Check back soon for updates on our latest competitions, achievements, and team milestones.
+							Check back soon for updates on our latest competitions, achievements, and team
+							milestones.
 						</p>
 					</div>
 					<div class="border-l-4 border-primary pl-4">
 						<h3 class="text-xl font-semibold mb-2 text-primary">Community Events</h3>
 						<p class="text-text-light">
-							Stay tuned for information about upcoming workshops, outreach events, and community initiatives.
+							Stay tuned for information about upcoming workshops, outreach events, and community
+							initiatives.
 						</p>
 					</div>
 					<div class="border-l-4 border-primary pl-4">
 						<h3 class="text-xl font-semibold mb-2 text-primary">Team News</h3>
 						<p class="text-text-light">
-							Follow our social media channels for real-time updates, behind-the-scenes content, and team highlights.
+							Follow our social media channels for real-time updates, behind-the-scenes content, and
+							team highlights.
 						</p>
 					</div>
 				</div>

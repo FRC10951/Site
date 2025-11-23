@@ -1,4 +1,7 @@
-<section class="relative section-lg flex-center min-h-[600px] tablet:min-h-[500px] overflow-hidden m-0 w-full" style="background-image: url('/full-STEAM-ahead.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section
+	class="relative section-lg flex-center min-h-[600px] tablet:min-h-[500px] overflow-hidden m-0 w-full"
+	style="background-image: url('/full-STEAM-ahead.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+>
 	<div class="absolute inset-0 brightness-[0.85] z-0"></div>
 	<div class="absolute inset-0 bg-black/50 z-1"></div>
 	<div class="relative z-2 container-narrow text-center tablet:text-center">

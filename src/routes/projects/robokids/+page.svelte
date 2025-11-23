@@ -21,10 +21,14 @@
 				</div>
 				<h2 class="text-2xl font-bold mb-4 text-primary">About RoboKids</h2>
 				<p class="text-text-light mb-4">
-					RoboKids is our program designed to inspire the next generation of robotics enthusiasts through hands-on learning and exploration. We introduce younger students to the exciting world of robotics in a fun, engaging, and educational way.
+					RoboKids is our program designed to inspire the next generation of robotics enthusiasts
+					through hands-on learning and exploration. We introduce younger students to the exciting
+					world of robotics in a fun, engaging, and educational way.
 				</p>
 				<p class="text-text-light">
-					Through interactive workshops, building sessions, and friendly competitions, RoboKids participants develop foundational skills in engineering, programming, and problem-solving while having fun with robots.
+					Through interactive workshops, building sessions, and friendly competitions, RoboKids
+					participants develop foundational skills in engineering, programming, and problem-solving
+					while having fun with robots.
 				</p>
 			</div>
 
@@ -56,7 +60,9 @@
 			<div class="card">
 				<h2 class="text-2xl font-bold mb-4 text-primary">Join RoboKids</h2>
 				<p class="text-text-light mb-4">
-					RoboKids is open to students of all ages who are curious about robotics and technology. Whether you're a complete beginner or have some experience, our program is designed to meet you where you are.
+					RoboKids is open to students of all ages who are curious about robotics and technology.
+					Whether you're a complete beginner or have some experience, our program is designed to
+					meet you where you are.
 				</p>
 				<p class="text-text-light">
 					Contact us to learn more about upcoming RoboKids sessions and how to register.

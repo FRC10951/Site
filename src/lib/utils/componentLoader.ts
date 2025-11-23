@@ -50,7 +50,6 @@ export function createLazyComponentLoader<T>(
 			observer.observe(element);
 
 			return () => observer.disconnect();
-		}
+		},
 	};
 }
-

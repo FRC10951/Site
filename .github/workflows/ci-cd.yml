@@ -17,7 +17,7 @@ jobs:
   test:
     name: Test and Lint
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     if: github.event_name == 'push'
-    
+
     permissions:
       contents: read
       packages: write
@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-docker
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -100,7 +100,7 @@ jobs:
           echo "🚀 Deployment triggered for commit ${{ github.sha }}"
           echo "📦 Docker image built and pushed to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
           echo "✅ Website is ready to be deployed!"
-          
+
       # Add your deployment steps here
       # For example, if deploying to a server via SSH:
       # - name: Deploy to server
@@ -113,4 +113,3 @@ jobs:
       #       docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       #       docker-compose down
       #       docker-compose up -d
-

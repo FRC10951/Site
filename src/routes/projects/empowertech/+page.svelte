@@ -21,10 +21,13 @@
 				</div>
 				<h2 class="text-2xl font-bold mb-4 text-primary">About EmpowerTech</h2>
 				<p class="text-text-light mb-4">
-					EmpowerTech is our initiative dedicated to empowering communities through technology education and innovation. We believe that access to quality STEM education should be available to everyone, regardless of background or circumstances.
+					EmpowerTech is our initiative dedicated to empowering communities through technology
+					education and innovation. We believe that access to quality STEM education should be
+					available to everyone, regardless of background or circumstances.
 				</p>
 				<p class="text-text-light">
-					Through workshops, mentorship programs, and collaborative projects, we work to bridge the technology gap and inspire the next generation of innovators.
+					Through workshops, mentorship programs, and collaborative projects, we work to bridge the
+					technology gap and inspire the next generation of innovators.
 				</p>
 			</div>
 
@@ -42,10 +45,12 @@
 			<div class="card">
 				<h2 class="text-2xl font-bold mb-4 text-primary">Get Involved</h2>
 				<p class="text-text-light mb-4">
-					Interested in supporting EmpowerTech or participating in our programs? We welcome volunteers, partners, and participants who share our vision of technology empowerment.
+					Interested in supporting EmpowerTech or participating in our programs? We welcome
+					volunteers, partners, and participants who share our vision of technology empowerment.
 				</p>
 				<p class="text-text-light">
-					Contact us to learn more about how you can contribute to our mission of making technology education accessible to all.
+					Contact us to learn more about how you can contribute to our mission of making technology
+					education accessible to all.
 				</p>
 			</div>
 		</div>

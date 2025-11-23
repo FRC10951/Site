@@ -23,7 +23,7 @@
 		{ id: 'image-text', name: 'Image + Text', component: TemplateImageText },
 		{ id: 'pricing', name: 'Pricing', component: TemplatePricing },
 		{ id: 'gallery', name: 'Gallery', component: TemplateGallery },
-		{ id: 'cta', name: 'CTA', component: TemplateCTA }
+		{ id: 'cta', name: 'CTA', component: TemplateCTA },
 	];
 
 	function filterSections(id: string): void {
@@ -101,8 +101,7 @@
 				<div class="info-card">
 					<h3>2. Copy Component</h3>
 					<p>
-						Navigate to <code>src/lib/components/templates/</code> and copy the component
-						file you need.
+						Navigate to <code>src/lib/components/templates/</code> and copy the component file you need.
 					</p>
 				</div>
 				<div class="info-card">
@@ -305,4 +304,3 @@
 		}
 	}
 </style>
-

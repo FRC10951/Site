@@ -55,10 +55,12 @@ src/routes/
 ## Quick Reference
 
 ### 🏠 Homepage
+
 - **File:** `+page.svelte` (root)
 - **URL:** `/`
 
 ### Main Navigation Pages
+
 - **About:** `about/+page.svelte` → `/about`
 - **Contact:** `contact/+page.svelte` → `/contact`
 - **FRC:** `frc/+page.svelte` → `/frc`
@@ -67,10 +69,12 @@ src/routes/
 - **STEM Community:** `stem-community/+page.svelte` → `/stem-community`
 
 ### Project Pages
+
 - **EmpowerTech:** `projects/empowertech/+page.svelte` → `/projects/empowertech`
 - **RoboKids:** `projects/robokids/+page.svelte` → `/projects/robokids`
 
 ### VEX Season Pages
+
 - **1599V:** `vex/1599v/+page.svelte` → `/vex/1599v`
 - **1599W:** `vex/1599w/+page.svelte` → `/vex/1599w`
 - **1599X:** `vex/1599x/+page.svelte` → `/vex/1599x`
@@ -78,9 +82,11 @@ src/routes/
 - **1599Z:** `vex/1599z/+page.svelte` → `/vex/1599z`
 
 ### Utility Pages
+
 - **Templates:** `templates/+page.svelte` → `/templates` (component showcase)
 
 ### API Endpoints
+
 - **Health Check:** `api/health/+server.ts` → `/api/health`
 
 ## Finding Pages
@@ -88,4 +94,3 @@ src/routes/
 - **Homepage:** Look for `+page.svelte` in the root of `src/routes/`
 - **Other Pages:** Each folder in `src/routes/` represents a URL segment
 - **Nested Routes:** Folders can be nested to create deeper URLs (e.g., `projects/empowertech/` → `/projects/empowertech`)
-

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { lazyLoadImage } from '$lib/utils/imageLoader';
 	import { fade } from 'svelte/transition';
@@ -8,40 +8,40 @@
 			name: '1599W',
 			description: 'cycles between all the teams',
 			image: '/vex.webp',
-			link: '/vex/1599w'
+			link: '/vex/1599w',
 		},
 		{
 			name: '1599V',
 			description: 'competitive excellence and technical innovation',
 			image: '/hero.webp',
-			link: '/vex/1599v'
+			link: '/vex/1599v',
 		},
 		{
 			name: '1599X',
 			description: 'pushing the boundaries of robotics innovation',
 			image: '/vex.webp',
-			link: '/vex/1599x'
+			link: '/vex/1599x',
 		},
 		{
 			name: '1599Y',
 			description: 'emphasizing technical skills and collaborative teamwork',
 			image: '/hero.webp',
-			link: '/vex/1599y'
+			link: '/vex/1599y',
 		},
 		{
 			name: '1599Z',
 			description: 'the culmination of our VEX program with excellence and mentorship',
 			image: '/vex.webp',
-			link: '/vex/1599z'
-		}
+			link: '/vex/1599z',
+		},
 	];
 
 	const AUTO_ADVANCE_INTERVAL = 10000; // 10 seconds
 
 	let currentIndex = 0;
-	let imageElement;
+	let imageElement: HTMLElement | undefined;
 	let isTransitioning = false;
-	let autoAdvanceInterval;
+	let autoAdvanceInterval: ReturnType<typeof setInterval> | null = null;
 
 	$: currentTeam = teams[currentIndex];
 
@@ -85,18 +85,18 @@
 		stopAutoAdvance();
 		autoAdvanceInterval = setInterval(() => {
 			if (!isTransitioning) {
+				isTransitioning = true;
 				currentIndex = (currentIndex + 1) % teams.length;
 				loadImage();
 				setTimeout(() => {
 					isTransitioning = false;
 				}, 300);
-				isTransitioning = true;
 			}
 		}, AUTO_ADVANCE_INTERVAL);
 	}
 
 	function stopAutoAdvance() {
-		if (autoAdvanceInterval) {
+		if (autoAdvanceInterval !== null) {
 			clearInterval(autoAdvanceInterval);
 			autoAdvanceInterval = null;
 		}
@@ -180,7 +180,10 @@
 			>
 				Learn More
 			</a>
-			<a href="/vex" class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark">
+			<a
+				href="/vex"
+				class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark"
+			>
 				VEX Overview
 			</a>
 		</div>

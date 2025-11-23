@@ -35,6 +35,7 @@ From the project root:
 ```
 
 The deployment script will:
+
 1. Pull latest changes from git
 2. Update dependencies
 3. Build the Docker image
@@ -69,4 +70,3 @@ The container includes a health check endpoint at `/api/health`. Docker will aut
 - The Dockerfile uses a multi-stage build for optimal image size
 - The build context is set to the project root (parent directory)
 - All deployment files are kept in this folder for organization
-
