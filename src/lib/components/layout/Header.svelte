@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onDestroy, onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
@@ -10,8 +12,8 @@
 		{ label: 'Our Projects', href: '/' },
 		{ label: 'Contact', href: '/contact' },
 	];
-	let mobileMenuOpen = false;
-	let isDark = false;
+	let mobileMenuOpen = $state(false);
+	let isDark = $state(false);
 
 	// Initialize dark mode from localStorage (default to light mode)
 	onMount(() => {
@@ -64,9 +66,11 @@
 	}
 
 	// Manage body scroll state reactively
-	$: if (browser) {
-		document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
-	}
+	run(() => {
+		if (browser) {
+			document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+		}
+	});
 
 	function toggleMobileMenu() {
 		mobileMenuOpen = !mobileMenuOpen;
@@ -94,7 +98,7 @@
 		{/each}
 		<button
 			class="theme-toggle"
-			on:click={toggleTheme}
+			onclick={toggleTheme}
 			aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 			title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 		>
@@ -142,7 +146,7 @@
 	<button
 		class="mobile-menu-toggle"
 		class:open={mobileMenuOpen}
-		on:click={toggleMobileMenu}
+		onclick={toggleMobileMenu}
 		aria-label={mobileMenuOpen ? 'Close menu' : 'Toggle menu'}
 		aria-expanded={mobileMenuOpen}
 	>
@@ -173,11 +177,11 @@
 		<nav class="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation menu">
 			<div class="mobile-nav-content">
 				{#each navItems as item}
-					<a href={item.href} class="mobile-nav-link" on:click={closeMobileMenu}>{item.label}</a>
+					<a href={item.href} class="mobile-nav-link" onclick={closeMobileMenu}>{item.label}</a>
 				{/each}
 				<button
 					class="mobile-theme-toggle"
-					on:click={toggleTheme}
+					onclick={toggleTheme}
 					aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 					title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 				>

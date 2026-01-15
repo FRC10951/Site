@@ -38,13 +38,13 @@
 
 	const AUTO_ADVANCE_INTERVAL = 10000; // 10 seconds
 
-	let currentIndex = 0;
-	let imageElement: HTMLElement | undefined;
-	let isTransitioning = false;
+	let currentIndex = $state(0);
+	let imageElement: HTMLElement | undefined = $state();
+	let isTransitioning = $state(false);
 	let autoAdvanceInterval: ReturnType<typeof setInterval> | null = null;
-	let isFadingOut = false;
+	let isFadingOut = $state(false);
 
-	$: currentTeam = teams[currentIndex];
+	let currentTeam = $derived(teams[currentIndex]);
 
 	function nextTeam() {
 		if (isTransitioning) return;
@@ -127,7 +127,7 @@
 	<div class="vex-feature-navigation">
 		<button
 			class="vex-nav-button"
-			on:click={prevTeam}
+			onclick={prevTeam}
 			aria-label="Previous team"
 			disabled={isTransitioning}
 		>
@@ -147,7 +147,7 @@
 		</button>
 		<button
 			class="vex-nav-button"
-			on:click={nextTeam}
+			onclick={nextTeam}
 			aria-label="Next team"
 			disabled={isTransitioning}
 		>

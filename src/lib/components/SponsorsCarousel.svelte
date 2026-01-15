@@ -2,15 +2,15 @@
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 
-	let isDark = false;
+	let isDark = $state(false);
 
 	// Get FIRST logo based on dark mode
-	$: firstLogoSrc = isDark
+	let firstLogoSrc = $derived(isDark
 		? '/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp'
-		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp';
+		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp');
 
 	// Sponsor logos from static folder
-	$: slides = [
+	let slides = $derived([
 		{ src: '/sponsor-logos/coca-cola-logo.webp', alt: 'Coca-Cola' },
 		{ src: firstLogoSrc, alt: 'FIRST Robotics Competition' },
 		{ src: '/ssis-logos/ssis-logo.webp', alt: 'Saigon South International School' },
@@ -18,10 +18,10 @@
 		{ src: '/sponsor-logos/lockheed-martin-logo.webp', alt: 'Lockheed Martin' },
 		{ src: '/sponsor-logos/palantir-logo.webp', alt: 'Palantir' },
 		{ src: '/sponsor-logos/boeing-logo.webp', alt: 'Boeing' },
-	];
+	]);
 
 	// Duplicate slides for seamless loop
-	$: duplicatedSlides = [...slides, ...slides];
+	let duplicatedSlides = $derived([...slides, ...slides]);
 
 	onMount(() => {
 		if (browser) {

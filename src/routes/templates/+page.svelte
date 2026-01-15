@@ -14,7 +14,7 @@
 	import TemplateGallery from '$lib/components/templates/TemplateGallery.svelte';
 	import type { ComponentType } from 'svelte';
 
-	let activeSection: string = 'all';
+	let activeSection: string = $state('all');
 	const sections: Array<{ id: string; name: string; component: ComponentType }> = [
 		{ id: 'hero', name: 'Hero', component: TemplateHero },
 		{ id: 'features', name: 'Features', component: TemplateFeatureGrid },
@@ -50,7 +50,7 @@
 			<button
 				class="nav-button"
 				class:active={activeSection === 'all'}
-				on:click={() => (activeSection = 'all')}
+				onclick={() => (activeSection = 'all')}
 			>
 				All Sections
 			</button>
@@ -58,7 +58,7 @@
 				<button
 					class="nav-button"
 					class:active={activeSection === section.id}
-					on:click={() => filterSections(section.id)}
+					onclick={() => filterSections(section.id)}
 				>
 					{section.name}
 				</button>
@@ -74,7 +74,7 @@
 						<h2>{section.name} Section</h2>
 						<p>Component: {section.component.name}</p>
 					</div>
-					<svelte:component this={section.component} />
+					<section.component />
 				</div>
 			{/each}
 		{:else}
@@ -84,7 +84,7 @@
 						<h2>{section.name} Section</h2>
 						<p>Component: {section.component.name}</p>
 					</div>
-					<svelte:component this={section.component} />
+					<section.component />
 				</div>
 			{/each}
 		{/if}

@@ -32,7 +32,7 @@
 				</p>
 			</div>
 
-			<form on:submit={handleSubmit} class="card">
+			<form onsubmit={handleSubmit} class="card">
 				<div class="flex-col flex-gap-lg">
 					<div>
 						<label for="name" class="label"> Your Name </label>
@@ -67,7 +67,7 @@
 							rows="5"
 							class="textarea"
 							placeholder="Your Message"
-						/>
+						></textarea>
 					</div>
 
 					<button type="submit" class="btn btn-primary w-full">Send Message</button>

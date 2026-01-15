@@ -3,7 +3,7 @@
 	import { lazyLoadImage } from '$lib/utils/imageLoader';
 
 	/** @type {HTMLElement | null} */
-	let imageElement;
+	let imageElement = $state();
 
 	onMount(() => {
 		if (!imageElement) return;

@@ -2,12 +2,12 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
-	let isDark = false;
+	let isDark = $state(false);
 
 	// Reactive FIRST logo path based on theme
-	$: firstLogoSrc = isDark
+	let firstLogoSrc = $derived(isDark
 		? '/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp'
-		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp';
+		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp');
 
 	// Initialize dark mode from localStorage (default to light mode)
 	onMount(() => {
@@ -191,7 +191,7 @@
 			<h6 class="text-[#1a1a1a] dark:text-white">Theme</h6>
 			<button
 				class="footer-theme-toggle bg-white dark:bg-[#212124] border-[#e5e5e5] dark:border-[#818181] text-[#666] dark:text-white"
-				on:click={toggleTheme}
+				onclick={toggleTheme}
 				aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 				title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 			>

@@ -6,12 +6,17 @@
 		minimal: 'hover:opacity-75 transition-opacity',
 	};
 
-	export let href = '';
-	export let variant = 'inverted' as HeroButtonVariants;
+	interface Props {
+		href?: string;
+		variant?: any;
+		children?: import('svelte').Snippet;
+	}
 
-	$: variantClasses = VARIANT_CLASSES[variant];
+	let { href = '', variant = 'inverted' as HeroButtonVariants, children }: Props = $props();
+
+	let variantClasses = $derived(VARIANT_CLASSES[variant]);
 </script>
 
 <a {href} class={`rounded-lg px-4 py-3 font-semibold ${variantClasses}`}>
-	<slot />
+	{@render children?.()}
 </a>

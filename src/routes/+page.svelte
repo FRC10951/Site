@@ -5,23 +5,23 @@
 	import { createLazyComponentLoader } from '$lib/utils/componentLoader';
 	import type { ComponentType } from 'svelte';
 
-	let About: ComponentType | null = null;
-	let FirstAge: ComponentType | null = null;
-	let VexFeature: ComponentType | null = null;
-	let EmpowerTechCard: ComponentType | null = null;
-	let RobokidsCard: ComponentType | null = null;
-	let Events: ComponentType | null = null;
-	let CommunityProjects: ComponentType | null = null;
-	let CTA: ComponentType | null = null;
+	let About: ComponentType | null = $state(null);
+	let FirstAge: ComponentType | null = $state(null);
+	let VexFeature: ComponentType | null = $state(null);
+	let EmpowerTechCard: ComponentType | null = $state(null);
+	let RobokidsCard: ComponentType | null = $state(null);
+	let Events: ComponentType | null = $state(null);
+	let CommunityProjects: ComponentType | null = $state(null);
+	let CTA: ComponentType | null = $state(null);
 
-	let aboutElement: HTMLElement | null = null;
-	let firstAgeElement: HTMLElement | null = null;
-	let vexFeatureElement: HTMLElement | null = null;
-	let empowerTechElement: HTMLElement | null = null;
-	let robokidsElement: HTMLElement | null = null;
-	let eventsElement: HTMLElement | null = null;
-	let communityProjectsElement: HTMLElement | null = null;
-	let ctaElement: HTMLElement | null = null;
+	let aboutElement: HTMLElement | null = $state(null);
+	let firstAgeElement: HTMLElement | null = $state(null);
+	let vexFeatureElement: HTMLElement | null = $state(null);
+	let empowerTechElement: HTMLElement | null = $state(null);
+	let robokidsElement: HTMLElement | null = $state(null);
+	let eventsElement: HTMLElement | null = $state(null);
+	let communityProjectsElement: HTMLElement | null = $state(null);
+	let ctaElement: HTMLElement | null = $state(null);
 
 	onMount(() => {
 		const cleanup: (() => void)[] = [];
@@ -110,13 +110,13 @@
 <main>
 	<div bind:this={aboutElement}>
 		{#if About}
-			<svelte:component this={About} />
+			<About />
 		{/if}
 	</div>
 
 	<div bind:this={firstAgeElement}>
 		{#if FirstAge}
-			<svelte:component this={FirstAge} />
+			<FirstAge />
 		{/if}
 	</div>
 
@@ -128,18 +128,18 @@
 			<div class="features-grid">
 				<div class="left">
 					{#if VexFeature}
-						<svelte:component this={VexFeature} />
+						<VexFeature />
 					{/if}
 				</div>
 				<div class="right">
 					<div class="quarter-top" bind:this={empowerTechElement}>
 						{#if EmpowerTechCard}
-							<svelte:component this={EmpowerTechCard} />
+							<EmpowerTechCard />
 						{/if}
 					</div>
 					<div class="quarter-bottom" bind:this={robokidsElement}>
 						{#if RobokidsCard}
-							<svelte:component this={RobokidsCard} />
+							<RobokidsCard />
 						{/if}
 					</div>
 				</div>
@@ -149,19 +149,19 @@
 
 	<div bind:this={communityProjectsElement}>
 		{#if CommunityProjects}
-			<svelte:component this={CommunityProjects} />
+			<CommunityProjects />
 		{/if}
 	</div>
 
 	<div bind:this={eventsElement}>
 		{#if Events}
-			<svelte:component this={Events} />
+			<Events />
 		{/if}
 	</div>
 
 	<div bind:this={ctaElement}>
 		{#if CTA}
-			<svelte:component this={CTA} />
+			<CTA />
 		{/if}
 	</div>
 </main>
