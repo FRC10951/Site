@@ -1,23 +1,23 @@
 <script>
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
+	import { browser } from "$app/environment";
+	import { onMount } from "svelte";
 
 	let isDark = $state(false);
 
 	// Get FIRST logo based on dark mode
-	let firstLogoSrc = $derived(isDark
-		? '/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp'
-		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp');
+	let firstLogoSrc = $derived(
+		isDark ? "/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp" : "/FIRST-logos/FIRST-light-mode-horizontal-logo.webp"
+	);
 
 	// Sponsor logos from static folder
 	let slides = $derived([
-		{ src: '/sponsor-logos/coca-cola-logo.webp', alt: 'Coca-Cola' },
-		{ src: firstLogoSrc, alt: 'FIRST Robotics Competition' },
-		{ src: '/ssis-logos/ssis-logo.webp', alt: 'Saigon South International School' },
-		{ src: '/sponsor-logos/WIPLib-logo.webp', alt: 'WIPLib' },
-		{ src: '/sponsor-logos/lockheed-martin-logo.webp', alt: 'Lockheed Martin' },
-		{ src: '/sponsor-logos/palantir-logo.webp', alt: 'Palantir' },
-		{ src: '/sponsor-logos/boeing-logo.webp', alt: 'Boeing' },
+		{ src: "/sponsor-logos/coca-cola-logo.webp", alt: "Coca-Cola" },
+		{ src: firstLogoSrc, alt: "FIRST Robotics Competition" },
+		{ src: "/ssis-logos/ssis-logo.webp", alt: "Saigon South International School" },
+		{ src: "/sponsor-logos/WIPLib-logo.webp", alt: "WIPLib" },
+		{ src: "/sponsor-logos/lockheed-martin-logo.webp", alt: "Lockheed Martin" },
+		{ src: "/sponsor-logos/palantir-logo.webp", alt: "Palantir" },
+		{ src: "/sponsor-logos/boeing-logo.webp", alt: "Boeing" },
 	]);
 
 	// Duplicate slides for seamless loop
@@ -26,28 +26,28 @@
 	onMount(() => {
 		if (browser) {
 			// Check initial dark mode state
-			isDark = document.documentElement.classList.contains('dark');
+			isDark = document.documentElement.classList.contains("dark");
 
 			// Listen for theme changes
 			const handleThemeChange = () => {
-				isDark = document.documentElement.classList.contains('dark');
+				isDark = document.documentElement.classList.contains("dark");
 			};
 
-			window.addEventListener('themechange', handleThemeChange);
-			window.addEventListener('themeChange', handleThemeChange);
+			window.addEventListener("themechange", handleThemeChange);
+			window.addEventListener("themeChange", handleThemeChange);
 
 			// Watch for class changes
 			const observer = new MutationObserver(() => {
-				isDark = document.documentElement.classList.contains('dark');
+				isDark = document.documentElement.classList.contains("dark");
 			});
 			observer.observe(document.documentElement, {
 				attributes: true,
-				attributeFilter: ['class']
+				attributeFilter: ["class"],
 			});
 
 			return () => {
-				window.removeEventListener('themechange', handleThemeChange);
-				window.removeEventListener('themeChange', handleThemeChange);
+				window.removeEventListener("themechange", handleThemeChange);
+				window.removeEventListener("themeChange", handleThemeChange);
 				observer.disconnect();
 			};
 		}

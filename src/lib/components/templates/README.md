@@ -14,7 +14,7 @@ Full-width hero section with background image, overlay, and call-to-action butto
 
 ```svelte
 <script>
-	import TemplateHero from '$lib/components/templates/TemplateHero.svelte';
+	import TemplateHero from "$lib/components/templates/TemplateHero.svelte";
 </script>
 
 <TemplateHero />
@@ -30,7 +30,7 @@ Full-width hero section with background image, overlay, and call-to-action butto
 
 ```svelte
 <script>
-	import TemplateFeatureGrid from '$lib/components/templates/TemplateFeatureGrid.svelte';
+	import TemplateFeatureGrid from "$lib/components/templates/TemplateFeatureGrid.svelte";
 </script>
 
 <TemplateFeatureGrid />
@@ -46,7 +46,7 @@ Statistics/metrics section with large numbers and labels. Great for showcasing a
 
 ```svelte
 <script>
-	import TemplateStats from '$lib/components/templates/TemplateStats.svelte';
+	import TemplateStats from "$lib/components/templates/TemplateStats.svelte";
 </script>
 
 <TemplateStats />
@@ -62,7 +62,7 @@ Customer testimonials section with avatar placeholders and quotes.
 
 ```svelte
 <script>
-	import TemplateTestimonials from '$lib/components/templates/TemplateTestimonials.svelte';
+	import TemplateTestimonials from "$lib/components/templates/TemplateTestimonials.svelte";
 </script>
 
 <TemplateTestimonials />
@@ -78,7 +78,7 @@ Alternating image and text sections. Perfect for storytelling or feature explana
 
 ```svelte
 <script>
-	import TemplateImageText from '$lib/components/templates/TemplateImageText.svelte';
+	import TemplateImageText from "$lib/components/templates/TemplateImageText.svelte";
 </script>
 
 <TemplateImageText />
@@ -94,7 +94,7 @@ Pricing cards section with three tiers and feature lists.
 
 ```svelte
 <script>
-	import TemplatePricing from '$lib/components/templates/TemplatePricing.svelte';
+	import TemplatePricing from "$lib/components/templates/TemplatePricing.svelte";
 </script>
 
 <TemplatePricing />
@@ -110,7 +110,7 @@ Image gallery grid with hover effects and overlay information.
 
 ```svelte
 <script>
-	import TemplateGallery from '$lib/components/templates/TemplateGallery.svelte';
+	import TemplateGallery from "$lib/components/templates/TemplateGallery.svelte";
 </script>
 
 <TemplateGallery />
@@ -126,7 +126,7 @@ Call-to-action section with gradient background and action buttons.
 
 ```svelte
 <script>
-	import TemplateCTA from '$lib/components/templates/TemplateCTA.svelte';
+	import TemplateCTA from "$lib/components/templates/TemplateCTA.svelte";
 </script>
 
 <TemplateCTA />

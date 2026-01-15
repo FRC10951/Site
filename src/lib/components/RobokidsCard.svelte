@@ -1,13 +1,13 @@
 <script>
-	import { onMount } from 'svelte';
-	import { lazyLoadImage } from '$lib/utils/imageLoader';
+	import { onMount } from "svelte";
+	import { lazyLoadImage } from "$lib/utils/imageLoader";
 
 	/** @type {HTMLElement | null} */
 	let imageElement = $state();
 
 	onMount(() => {
 		if (!imageElement) return;
-		return lazyLoadImage('/STEM-community-images/robokids.webp', imageElement);
+		return lazyLoadImage("/STEM-community-images/robokids.webp", imageElement);
 	});
 </script>
 
@@ -21,10 +21,7 @@
 				Inspiring the next generation of robotics enthusiasts through hands-on learning.
 			</p>
 		</div>
-		<a
-			href="/projects/robokids"
-			class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark"
-		>
+		<a href="/projects/robokids" class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark">
 			Learn More
 		</a>
 	</div>

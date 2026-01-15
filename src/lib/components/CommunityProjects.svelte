@@ -49,9 +49,8 @@
 		<article class="card about">
 			<h4 class="about-projects-heading text-[#333] dark:text-white">About Projects</h4>
 			<p class="about-projects-text text-[#666] dark:text-white">
-				Our community projects are initiatives that extend beyond competition. We work with local
-				schools, organize workshops, and create educational resources to inspire the next generation
-				of engineers and innovators.
+				Our community projects are initiatives that extend beyond competition. We work with local schools, organize
+				workshops, and create educational resources to inspire the next generation of engineers and innovators.
 			</p>
 		</article>
 	</div>

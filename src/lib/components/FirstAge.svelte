@@ -10,11 +10,7 @@
 				</div>
 			</div>
 			<div class="decorative">
-				<img
-				src="/homepage-images/FIRST-AGE.webp"
-				alt="FIRST Age"
-				class="age-image img-responsive"
-			/>
+				<img src="/homepage-images/FIRST-AGE.webp" alt="FIRST Age" class="age-image img-responsive" />
 			</div>
 		</div>
 	</div>

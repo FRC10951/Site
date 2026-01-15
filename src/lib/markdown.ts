@@ -1,10 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { remark } from "remark";
+import remarkHtml from "remark-html";
 
-const contentDirectory = path.join(process.cwd(), 'src/content');
+const contentDirectory = path.join(process.cwd(), "src/content");
 
 export interface Post {
 	slug: string;
@@ -21,7 +21,7 @@ export async function getPostBySlug(slug: string, folder: string): Promise<Post 
 		return null;
 	}
 
-	const fileContents = fs.readFileSync(fullPath, 'utf8');
+	const fileContents = fs.readFileSync(fullPath, "utf8");
 	const { data, content } = matter(fileContents);
 
 	const processedContent = await remark().use(remarkHtml).process(content);
@@ -30,7 +30,7 @@ export async function getPostBySlug(slug: string, folder: string): Promise<Post 
 	return {
 		slug,
 		title: data.title || slug,
-		date: data.date || '',
+		date: data.date || "",
 		content: contentHtml,
 		excerpt: data.excerpt,
 	};
@@ -46,9 +46,9 @@ export async function getAllPosts(folder: string): Promise<Post[]> {
 	const files = fs.readdirSync(folderPath);
 	const posts = await Promise.all(
 		files
-			.filter((file) => file.endsWith('.md'))
+			.filter((file) => file.endsWith(".md"))
 			.map(async (file) => {
-				const slug = file.replace(/\.md$/, '');
+				const slug = file.replace(/\.md$/, "");
 				return await getPostBySlug(slug, folder);
 			})
 	);

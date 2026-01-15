@@ -171,7 +171,7 @@
 	}
 
 	.plan-features li::before {
-		content: '✓';
+		content: "✓";
 		position: absolute;
 		left: 0;
 		color: #333;

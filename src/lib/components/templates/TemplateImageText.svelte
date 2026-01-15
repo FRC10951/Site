@@ -8,8 +8,8 @@
 			<div class="text-side">
 				<h2>Section Title</h2>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+					magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 				</p>
 				<ul class="feature-list">
 					<li>Feature point one</li>
@@ -23,13 +23,10 @@
 			<div class="text-side">
 				<h2>Another Section</h2>
 				<p>
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-					commodo consequat. Duis aute irure dolor in reprehenderit.
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Duis aute irure dolor in reprehenderit.
 				</p>
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-					laudantium.
-				</p>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
 				<button class="btn-primary">Get Started</button>
 			</div>
 			<div class="image-side">
@@ -113,7 +110,7 @@
 	}
 
 	.feature-list li::before {
-		content: '✓';
+		content: "✓";
 		position: absolute;
 		left: 0;
 		color: #333;

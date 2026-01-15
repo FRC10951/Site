@@ -11,7 +11,7 @@ module.exports = {
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2020,
-		extraFileExtensions: ['.svelte'],
+		extraFileExtensions: ['.svelte', 'eslint-plugin-svelte'],
 	},
 	env: {
 		browser: true,

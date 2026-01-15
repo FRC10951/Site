@@ -1,7 +1,7 @@
 ---
-title: 'Welcome to Our Blog'
-date: '2024-11-10'
-excerpt: 'This is an example blog post to demonstrate the markdown content system.'
+title: "Welcome to Our Blog"
+date: "2024-11-10"
+excerpt: "This is an example blog post to demonstrate the markdown content system."
 ---
 
 # Welcome to Our Blog

@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import { run } from "svelte/legacy";
 
-	import { onDestroy, onMount } from 'svelte';
-	import { browser } from '$app/environment';
+	import { onDestroy, onMount } from "svelte";
+	import { browser } from "$app/environment";
 
 	const navItems = [
-		{ label: 'SSIS', href: '/' },
-		{ label: 'Team', href: '/about' },
-		{ label: 'Media', href: '/' },
-		{ label: 'Outreach', href: '/' },
-		{ label: 'Our Projects', href: '/' },
-		{ label: 'Contact', href: '/contact' },
+		{ label: "SSIS", href: "/" },
+		{ label: "Team", href: "/about" },
+		{ label: "Media", href: "/" },
+		{ label: "Outreach", href: "/" },
+		{ label: "Our Projects", href: "/" },
+		{ label: "Contact", href: "/contact" },
 	];
 	let mobileMenuOpen = $state(false);
 	let isDark = $state(false);
@@ -18,28 +18,28 @@
 	// Initialize dark mode from localStorage (default to light mode)
 	onMount(() => {
 		if (browser) {
-			const stored = localStorage.getItem('theme');
+			const stored = localStorage.getItem("theme");
 			// Default to light mode if no preference is stored
-			isDark = stored === 'dark';
+			isDark = stored === "dark";
 			updateTheme();
 
 			// Listen for theme changes from other components
-			window.addEventListener('storage', handleStorageChange);
-			window.addEventListener('themechange', handleThemeChange);
+			window.addEventListener("storage", handleStorageChange);
+			window.addEventListener("themechange", handleThemeChange);
 		}
 	});
 
 	function handleStorageChange(e: StorageEvent) {
-		if (e.key === 'theme') {
-			isDark = e.newValue === 'dark';
+		if (e.key === "theme") {
+			isDark = e.newValue === "dark";
 			updateTheme();
 		}
 	}
 
 	function handleThemeChange() {
 		if (browser) {
-			const stored = localStorage.getItem('theme');
-			isDark = stored === 'dark';
+			const stored = localStorage.getItem("theme");
+			isDark = stored === "dark";
 			updateTheme();
 		}
 	}
@@ -48,19 +48,19 @@
 		isDark = !isDark;
 		updateTheme();
 		if (browser) {
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			localStorage.setItem("theme", isDark ? "dark" : "light");
 			// Dispatch custom event to sync other components (both lowercase and uppercase for compatibility)
-			window.dispatchEvent(new CustomEvent('themechange'));
-			window.dispatchEvent(new CustomEvent('themeChange'));
+			window.dispatchEvent(new CustomEvent("themechange"));
+			window.dispatchEvent(new CustomEvent("themeChange"));
 		}
 	}
 
 	function updateTheme() {
 		if (browser) {
 			if (isDark) {
-				document.documentElement.classList.add('dark');
+				document.documentElement.classList.add("dark");
 			} else {
-				document.documentElement.classList.remove('dark');
+				document.documentElement.classList.remove("dark");
 			}
 		}
 	}
@@ -68,7 +68,7 @@
 	// Manage body scroll state reactively
 	run(() => {
 		if (browser) {
-			document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+			document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
 		}
 	});
 
@@ -83,15 +83,15 @@
 	// Cleanup: restore body scroll on component destroy
 	onDestroy(() => {
 		if (browser) {
-			document.body.style.overflow = '';
+			document.body.style.overflow = "";
 		}
 	});
 </script>
 
 <header class="site-header" class:menu-open={mobileMenuOpen}>
-	<div class="logo-wrapper" class:menu-open={mobileMenuOpen}>
+	<a class="logo-wrapper" class:menu-open={mobileMenuOpen} href="/">
 		<img src="/branding/wordmark-color.png" alt="Saigon South Dragons" class="logo" />
-	</div>
+	</a>
 	<nav class="desktop-nav">
 		{#each navItems as item}
 			<a href={item.href} class="nav-link">{item.label}</a>
@@ -99,8 +99,8 @@
 		<button
 			class="theme-toggle"
 			onclick={toggleTheme}
-			aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-			title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+			aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+			title={isDark ? "Switch to light mode" : "Switch to dark mode"}
 		>
 			{#if isDark}
 				<!-- Sun icon for light mode -->
@@ -147,7 +147,7 @@
 		class="mobile-menu-toggle"
 		class:open={mobileMenuOpen}
 		onclick={toggleMobileMenu}
-		aria-label={mobileMenuOpen ? 'Close menu' : 'Toggle menu'}
+		aria-label={mobileMenuOpen ? "Close menu" : "Toggle menu"}
 		aria-expanded={mobileMenuOpen}
 	>
 		<span class="hamburger-icon">
@@ -182,8 +182,8 @@
 				<button
 					class="mobile-theme-toggle"
 					onclick={toggleTheme}
-					aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-					title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+					aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+					title={isDark ? "Switch to light mode" : "Switch to dark mode"}
 				>
 					{#if isDark}
 						<!-- Sun icon for light mode -->
@@ -224,7 +224,7 @@
 							<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
 						</svg>
 					{/if}
-					<span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+					<span>{isDark ? "Light Mode" : "Dark Mode"}</span>
 				</button>
 			</div>
 		</nav>
@@ -263,7 +263,7 @@
 	}
 
 	.logo {
-		height: 5rem;
+		height: 4rem;
 		width: auto;
 		display: block;
 		object-fit: contain;
@@ -425,7 +425,7 @@
 	}
 
 	.nav-link::after {
-		content: '';
+		content: "";
 		position: absolute;
 		inset: auto 0 -4px;
 		height: 2px;

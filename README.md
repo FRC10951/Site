@@ -29,5 +29,6 @@ bun run dev
 
 Early portions of this website was AI generated.
 
-Later structuring of this website was inspired by
-[the `pesde.dev` website.](https://github.com/pesde-pkg/pesde/tree/main/website)
+Later human-done revamping of this website was inspired by
+[the `pesde.dev` website](https://github.com/pesde-pkg/pesde/tree/main/website)
+and [the `caveygame.com` website.](https://github.com/daydream-eng/website/)

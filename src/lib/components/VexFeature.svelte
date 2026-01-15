@@ -1,38 +1,38 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { lazyLoadImage } from '$lib/utils/imageLoader';
-	import { fade } from 'svelte/transition';
+	import { onMount, onDestroy } from "svelte";
+	import { lazyLoadImage } from "$lib/utils/imageLoader";
+	import { fade } from "svelte/transition";
 
 	const teams = [
 		{
-			name: '1599W',
-			description: 'cycles between all the teams',
-			image: '/STEM-community-images/vex.webp',
-			link: '/vex/1599w',
+			name: "1599W",
+			description: "cycles between all the teams",
+			image: "/STEM-community-images/vex.webp",
+			link: "/vex/1599w",
 		},
 		{
-			name: '1599V',
-			description: 'competitive excellence and technical innovation',
-			image: '/hero.webp',
-			link: '/vex/1599v',
+			name: "1599V",
+			description: "competitive excellence and technical innovation",
+			image: "/hero.webp",
+			link: "/vex/1599v",
 		},
 		{
-			name: '1599X',
-			description: 'pushing the boundaries of robotics innovation',
-			image: '/STEM-community-images/vex.webp',
-			link: '/vex/1599x',
+			name: "1599X",
+			description: "pushing the boundaries of robotics innovation",
+			image: "/STEM-community-images/vex.webp",
+			link: "/vex/1599x",
 		},
 		{
-			name: '1599Y',
-			description: 'emphasizing technical skills and collaborative teamwork',
-			image: '/hero.webp',
-			link: '/vex/1599y',
+			name: "1599Y",
+			description: "emphasizing technical skills and collaborative teamwork",
+			image: "/hero.webp",
+			link: "/vex/1599y",
 		},
 		{
-			name: '1599Z',
-			description: 'the culmination of our VEX program with excellence and mentorship',
-			image: '/STEM-community-images/vex.webp',
-			link: '/vex/1599z',
+			name: "1599Z",
+			description: "the culmination of our VEX program with excellence and mentorship",
+			image: "/STEM-community-images/vex.webp",
+			link: "/vex/1599z",
 		},
 	];
 
@@ -125,12 +125,7 @@
 	<div class="vex-feature-bg" class:fade-out={isFadingOut} bind:this={imageElement}></div>
 	<div class="vex-feature-overlay"></div>
 	<div class="vex-feature-navigation">
-		<button
-			class="vex-nav-button"
-			onclick={prevTeam}
-			aria-label="Previous team"
-			disabled={isTransitioning}
-		>
+		<button class="vex-nav-button" onclick={prevTeam} aria-label="Previous team" disabled={isTransitioning}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="20"
@@ -145,12 +140,7 @@
 				<path d="m15 18-6-6 6-6" />
 			</svg>
 		</button>
-		<button
-			class="vex-nav-button"
-			onclick={nextTeam}
-			aria-label="Next team"
-			disabled={isTransitioning}
-		>
+		<button class="vex-nav-button" onclick={nextTeam} aria-label="Next team" disabled={isTransitioning}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="20"
@@ -175,16 +165,10 @@
 		{/key}
 		<div class="vex-feature-subtitle">VEX V5</div>
 		<div class="vex-feature-buttons">
-			<a
-				href={currentTeam.link}
-				class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark"
-			>
+			<a href={currentTeam.link} class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark">
 				Learn More
 			</a>
-			<a
-				href="/vex"
-				class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark"
-			>
+			<a href="/vex" class="btn btn-outline text-white border-white hover:bg-white hover:text-text-dark">
 				VEX Overview
 			</a>
 		</div>

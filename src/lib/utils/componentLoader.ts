@@ -16,7 +16,7 @@ export function createLazyComponentLoader<T>(
 ): {
 	load: (element: HTMLElement | null, callback: (component: T) => void) => () => void;
 } {
-	const { rootMargin = '100px', threshold = 0.1 } = options;
+	const { rootMargin = "100px", threshold = 0.1 } = options;
 
 	return {
 		load: (element: HTMLElement | null, callback: (component: T) => void) => {
@@ -38,7 +38,7 @@ export function createLazyComponentLoader<T>(
 							// Component loading failed - could implement retry logic or error boundary here
 							// For now, silently fail to avoid console errors in production
 							if (import.meta.env.DEV) {
-								console.error('Failed to load component:', error);
+								console.error("Failed to load component:", error);
 							}
 						}
 						observer.disconnect();

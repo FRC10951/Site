@@ -1,4 +1,4 @@
-@import './fonts.css';
+@import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -116,10 +116,10 @@
 		background: white;
 		color: #000000;
 		font-family:
-			'instrument',
+			"instrument",
 			-apple-system,
 			BlinkMacSystemFont,
-			'Segoe UI',
+			"Segoe UI",
 			Roboto,
 			Oxygen,
 			Ubuntu,

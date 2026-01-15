@@ -1,51 +1,57 @@
+<!--
+	Are u like serious zakhar
+	"vibe coding is good" NO IT ISNT bro???
+	gng im not touching this
+-->
+
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
+	import { onMount } from "svelte";
+	import { browser } from "$app/environment";
 
 	let isDark = $state(false);
 
 	// Reactive FIRST logo path based on theme
-	let firstLogoSrc = $derived(isDark
-		? '/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp'
-		: '/FIRST-logos/FIRST-light-mode-horizontal-logo.webp');
+	let firstLogoSrc = $derived(
+		isDark ? "/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp" : "/FIRST-logos/FIRST-light-mode-horizontal-logo.webp"
+	);
 
 	// Initialize dark mode from localStorage (default to light mode)
 	onMount(() => {
 		if (browser) {
-			const stored = localStorage.getItem('theme');
+			const stored = localStorage.getItem("theme");
 			// Default to light mode if no preference is stored
-			isDark = stored === 'dark';
+			isDark = stored === "dark";
 			updateTheme();
-			
+
 			// Listen for theme changes from other components
-			window.addEventListener('storage', handleStorageChange);
-			window.addEventListener('themechange', handleThemeChange);
-			window.addEventListener('themeChange', handleThemeChange); // Also listen for capital C version
-			
+			window.addEventListener("storage", handleStorageChange);
+			window.addEventListener("themechange", handleThemeChange);
+			window.addEventListener("themeChange", handleThemeChange); // Also listen for capital C version
+
 			// Also listen for DOM mutations to catch class changes
 			const observer = new MutationObserver(() => {
-				const hasDarkClass = document.documentElement.classList.contains('dark');
+				const hasDarkClass = document.documentElement.classList.contains("dark");
 				if (hasDarkClass !== isDark) {
 					isDark = hasDarkClass;
 				}
 			});
 			observer.observe(document.documentElement, {
 				attributes: true,
-				attributeFilter: ['class']
+				attributeFilter: ["class"],
 			});
-			
+
 			return () => {
-				window.removeEventListener('storage', handleStorageChange);
-				window.removeEventListener('themechange', handleThemeChange);
-				window.removeEventListener('themeChange', handleThemeChange);
+				window.removeEventListener("storage", handleStorageChange);
+				window.removeEventListener("themechange", handleThemeChange);
+				window.removeEventListener("themeChange", handleThemeChange);
 				observer.disconnect();
 			};
 		}
 	});
 
 	function handleStorageChange(e: StorageEvent) {
-		if (e.key === 'theme') {
-			isDark = e.newValue === 'dark';
+		if (e.key === "theme") {
+			isDark = e.newValue === "dark";
 			updateTheme();
 		}
 	}
@@ -53,12 +59,12 @@
 	function handleThemeChange(e?: Event) {
 		if (browser) {
 			// Check the actual state of the document
-			const hasDarkClass = document.documentElement.classList.contains('dark');
+			const hasDarkClass = document.documentElement.classList.contains("dark");
 			isDark = hasDarkClass;
 			// Also check localStorage as backup
-			const stored = localStorage.getItem('theme');
+			const stored = localStorage.getItem("theme");
 			if (stored) {
-				isDark = stored === 'dark';
+				isDark = stored === "dark";
 			}
 			// Ensure the class is applied
 			updateTheme();
@@ -69,33 +75,31 @@
 		isDark = !isDark;
 		updateTheme();
 		if (browser) {
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			localStorage.setItem("theme", isDark ? "dark" : "light");
 			// Dispatch custom event to sync other components (both lowercase and uppercase for compatibility)
-			window.dispatchEvent(new CustomEvent('themechange'));
-			window.dispatchEvent(new CustomEvent('themeChange'));
+			window.dispatchEvent(new CustomEvent("themechange"));
+			window.dispatchEvent(new CustomEvent("themeChange"));
 		}
 	}
 
 	function updateTheme() {
 		if (browser) {
 			if (isDark) {
-				document.documentElement.classList.add('dark');
+				document.documentElement.classList.add("dark");
 			} else {
-				document.documentElement.classList.remove('dark');
+				document.documentElement.classList.remove("dark");
 			}
 		}
 	}
 </script>
 
-<footer class="footer bg-gradient-to-b from-[#fafafa] to-white dark:!bg-[#161618] dark:from-[#161618] dark:to-[#161618]">
+<footer
+	class="footer bg-gradient-to-b from-[#fafafa] to-white dark:!bg-[#161618] dark:from-[#161618] dark:to-[#161618]"
+>
 	<div class="footer-content">
 		<div class="brand">
 			<div class="footer-logo-wrapper">
-				<img
-					src={firstLogoSrc}
-					alt="FRC 10951 - Saigon South Dragons"
-					class="footer-logo"
-				/>
+				<img src={firstLogoSrc} alt="FRC 10951 - Saigon South Dragons" class="footer-logo" />
 			</div>
 			<h6 class="text-[#1a1a1a] dark:text-white">SSIS Dragons</h6>
 			<p class="text-[#666] dark:text-white">Team 10951<br />Saigon South International School<br />Saigon, Vietnam</p>
@@ -103,34 +107,60 @@
 		<div class="links">
 			<h6 class="text-[#1a1a1a] dark:text-white">Robotics</h6>
 			<ul class="text-black dark:text-white">
-				<li class="text-black dark:text-white"><a href="/frc" aria-label="FRC" class="text-[#666] dark:text-white">FRC</a></li>
-				<li class="text-black dark:text-white"><a href="/vex" aria-label="VEX" class="text-[#666] dark:text-white">VEX</a></li>
-				<li class="text-black dark:text-white"><a href="/stem-community" aria-label="STEM Community" class="text-[#666] dark:text-white">STEM Community</a></li>
+				<li class="text-black dark:text-white">
+					<a href="/frc" aria-label="FRC" class="text-[#666] dark:text-white">FRC</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/vex" aria-label="VEX" class="text-[#666] dark:text-white">VEX</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/stem-community" aria-label="STEM Community" class="text-[#666] dark:text-white">STEM Community</a>
+				</li>
 			</ul>
 		</div>
 		<div class="links">
 			<h6 class="text-[#1a1a1a] dark:text-white">Team 10951</h6>
 			<ul class="text-black dark:text-white">
-				<li class="text-black dark:text-white"><a href="/about" aria-label="About" class="text-[#666] dark:text-white">About</a></li>
-				<li class="text-black dark:text-white"><a href="/media" aria-label="Media" class="text-[#666] dark:text-white">Media</a></li>
-				<li class="text-black dark:text-white"><a href="/contact" aria-label="Contact" class="text-[#666] dark:text-white">Contact</a></li>
+				<li class="text-black dark:text-white">
+					<a href="/about" aria-label="About" class="text-[#666] dark:text-white">About</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/media" aria-label="Media" class="text-[#666] dark:text-white">Media</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/contact" aria-label="Contact" class="text-[#666] dark:text-white">Contact</a>
+				</li>
 			</ul>
 		</div>
 		<div class="links">
 			<h6 class="text-[#1a1a1a] dark:text-white">VEX Teams</h6>
 			<ul class="text-black dark:text-white">
-				<li class="text-black dark:text-white"><a href="/vex/1599v" aria-label="1599V" class="text-[#666] dark:text-white">1599V</a></li>
-				<li class="text-black dark:text-white"><a href="/vex/1599w" aria-label="1599W" class="text-[#666] dark:text-white">1599W</a></li>
-				<li class="text-black dark:text-white"><a href="/vex/1599x" aria-label="1599X" class="text-[#666] dark:text-white">1599X</a></li>
-				<li class="text-black dark:text-white"><a href="/vex/1599y" aria-label="1599Y" class="text-[#666] dark:text-white">1599Y</a></li>
-				<li class="text-black dark:text-white"><a href="/vex/1599z" aria-label="1599Z" class="text-[#666] dark:text-white">1599Z</a></li>
+				<li class="text-black dark:text-white">
+					<a href="/vex/1599v" aria-label="1599V" class="text-[#666] dark:text-white">1599V</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/vex/1599w" aria-label="1599W" class="text-[#666] dark:text-white">1599W</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/vex/1599x" aria-label="1599X" class="text-[#666] dark:text-white">1599X</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/vex/1599y" aria-label="1599Y" class="text-[#666] dark:text-white">1599Y</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/vex/1599z" aria-label="1599Z" class="text-[#666] dark:text-white">1599Z</a>
+				</li>
 			</ul>
 		</div>
 		<div class="links">
 			<h6 class="text-[#1a1a1a] dark:text-white">Projects</h6>
 			<ul class="text-black dark:text-white">
-				<li class="text-black dark:text-white"><a href="/projects/empowertech" aria-label="EmpowerTech" class="text-[#666] dark:text-white">EmpowerTech</a></li>
-				<li class="text-black dark:text-white"><a href="/projects/robokids" aria-label="RoboKids" class="text-[#666] dark:text-white">RoboKids</a></li>
+				<li class="text-black dark:text-white">
+					<a href="/projects/empowertech" aria-label="EmpowerTech" class="text-[#666] dark:text-white">EmpowerTech</a>
+				</li>
+				<li class="text-black dark:text-white">
+					<a href="/projects/robokids" aria-label="RoboKids" class="text-[#666] dark:text-white">RoboKids</a>
+				</li>
 			</ul>
 		</div>
 		<div class="social">
@@ -160,13 +190,7 @@
 						<line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
 					</svg>
 				</a>
-				<a
-					href="https://youtube.com"
-					class="btn-icon"
-					aria-label="YouTube"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href="https://youtube.com" class="btn-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="20"
@@ -192,8 +216,8 @@
 			<button
 				class="footer-theme-toggle bg-white dark:bg-[#212124] border-[#e5e5e5] dark:border-[#818181] text-[#666] dark:text-white"
 				onclick={toggleTheme}
-				aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-				title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+				aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+				title={isDark ? "Switch to light mode" : "Switch to dark mode"}
 			>
 				{#if isDark}
 					<!-- Sun icon for light mode -->
@@ -242,7 +266,9 @@
 		</div>
 	</div>
 	<div class="footer-bottom border-t border-[#e5e5e5] dark:border-[#333333]">
-		<p class="text-[#999] dark:text-white">&copy; {new Date().getFullYear()} Team 10951 - Saigon South Dragons. All rights reserved.</p>
+		<p class="text-[#999] dark:text-white">
+			&copy; {new Date().getFullYear()} Team 10951 - Saigon South Dragons. All rights reserved.
+		</p>
 	</div>
 </footer>
 
@@ -332,7 +358,7 @@
 	}
 
 	.links a::after {
-		content: '';
+		content: "";
 		position: absolute;
 		bottom: -2px;
 		left: 0;

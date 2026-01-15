@@ -24,7 +24,7 @@ export function lazyLoadImage(
 		return () => {};
 	}
 
-	const { rootMargin = '50px', onLoad, onError } = options;
+	const { rootMargin = "50px", onLoad, onError } = options;
 	let imageLoaded = false;
 
 	const observer = new IntersectionObserver(

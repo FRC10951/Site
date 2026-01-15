@@ -8,9 +8,7 @@
 		<div class="testimonials-grid">
 			<div class="testimonial-card">
 				<div class="testimonial-content">
-					<p class="quote">
-						"This is an amazing product that has transformed how we work. Highly recommended!"
-					</p>
+					<p class="quote">"This is an amazing product that has transformed how we work. Highly recommended!"</p>
 				</div>
 				<div class="testimonial-author">
 					<div class="author-avatar">JD</div>
@@ -22,9 +20,7 @@
 			</div>
 			<div class="testimonial-card">
 				<div class="testimonial-content">
-					<p class="quote">
-						"Outstanding service and support. The team goes above and beyond every time."
-					</p>
+					<p class="quote">"Outstanding service and support. The team goes above and beyond every time."</p>
 				</div>
 				<div class="testimonial-author">
 					<div class="author-avatar">JS</div>
@@ -36,9 +32,7 @@
 			</div>
 			<div class="testimonial-card">
 				<div class="testimonial-content">
-					<p class="quote">
-						"The best investment we've made this year. Results speak for themselves."
-					</p>
+					<p class="quote">"The best investment we've made this year. Results speak for themselves."</p>
 				</div>
 				<div class="testimonial-author">
 					<div class="author-avatar">MJ</div>

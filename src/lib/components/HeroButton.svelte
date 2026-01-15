@@ -1,22 +1,23 @@
 <script lang="ts">
-	type HeroButtonVariants = 'primary' | 'minimal';
+	import type { Snippet } from "svelte";
+
+	export type HeroButtonVariants = "primary" | "minimal";
 
 	const VARIANT_CLASSES: Record<HeroButtonVariants, string> = {
-		primary: 'bg-gray-50 hover:bg-gray-300 text-dark transition-colors',
-		minimal: 'hover:opacity-75 transition-opacity',
+		primary: "px-4 bg-ssis-white hover:bg-ssis-blue text-dark hover:text-ssis-white transition-colors",
+		minimal: "hover:opacity-75 transition-opacity text-ssis-white",
 	};
 
 	interface Props {
 		href?: string;
-		variant?: any;
-		children?: import('svelte').Snippet;
+		variant?: HeroButtonVariants;
+		children?: Snippet;
 	}
 
-	let { href = '', variant = 'inverted' as HeroButtonVariants, children }: Props = $props();
-
+	let { href = "", variant = "primary", children }: Props = $props();
 	let variantClasses = $derived(VARIANT_CLASSES[variant]);
 </script>
 
-<a {href} class={`rounded-lg px-4 py-3 font-semibold ${variantClasses}`}>
+<a {href} class={`rounded-lg py-3 font-semibold ${variantClasses}`}>
 	{@render children?.()}
 </a>

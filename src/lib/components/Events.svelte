@@ -1,13 +1,13 @@
 <script>
-	import { onMount } from 'svelte';
-	import { lazyLoadImage } from '$lib/utils/imageLoader';
+	import { onMount } from "svelte";
+	import { lazyLoadImage } from "$lib/utils/imageLoader";
 
 	/** @type {HTMLElement | null} */
 	let imageElement = $state();
 
 	onMount(() => {
 		if (!imageElement) return;
-		return lazyLoadImage('/homepage-images/full-STEAM-ahead.webp', imageElement);
+		return lazyLoadImage("/homepage-images/full-STEAM-ahead.webp", imageElement);
 	});
 </script>
 
@@ -26,9 +26,8 @@
 					</div>
 					<h3>Full STEAM Ahead</h3>
 					<p>
-						Our commitment to Science, Technology, Engineering, Arts, and Mathematics education
-						drives everything we do. We're building a future where innovation and creativity go hand
-						in hand.
+						Our commitment to Science, Technology, Engineering, Arts, and Mathematics education drives everything we do.
+						We're building a future where innovation and creativity go hand in hand.
 					</p>
 					<button>Learn More</button>
 				</div>
@@ -45,8 +44,8 @@
 					</div>
 					<h3>STEM-sters United</h3>
 					<p>
-						Join us for an exciting event bringing together STEM enthusiasts from across the region.
-						Connect, learn, and collaborate with fellow innovators.
+						Join us for an exciting event bringing together STEM enthusiasts from across the region. Connect, learn, and
+						collaborate with fellow innovators.
 					</p>
 					<button>Learn More</button>
 				</div>
@@ -63,8 +62,8 @@
 					</div>
 					<h3>FRC Open-Doors</h3>
 					<p>
-						Experience FIRST Robotics Competition up close. Tour our facilities, meet the team, and
-						discover the world of competitive robotics.
+						Experience FIRST Robotics Competition up close. Tour our facilities, meet the team, and discover the world
+						of competitive robotics.
 					</p>
 					<button>Learn More</button>
 				</div>
