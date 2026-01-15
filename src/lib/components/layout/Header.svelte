@@ -20,7 +20,7 @@
 			// Default to light mode if no preference is stored
 			isDark = stored === 'dark';
 			updateTheme();
-			
+
 			// Listen for theme changes from other components
 			window.addEventListener('storage', handleStorageChange);
 			window.addEventListener('themechange', handleThemeChange);
@@ -85,13 +85,9 @@
 </script>
 
 <header class="site-header" class:menu-open={mobileMenuOpen}>
-		<div class="logo-wrapper" class:menu-open={mobileMenuOpen}>
-			<img
-				src="/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp"
-				alt="FRC 10951 - Saigon South Dragons"
-				class="logo"
-			/>
-		</div>
+	<div class="logo-wrapper" class:menu-open={mobileMenuOpen}>
+		<img src="/branding/wordmark-color.png" alt="Saigon South Dragons" class="logo" />
+	</div>
 	<nav class="desktop-nav">
 		{#each navItems as item}
 			<a href={item.href} class="nav-link">{item.label}</a>
@@ -262,12 +258,12 @@
 		top: 1.5rem;
 	}
 
-		.logo {
-			height: 2.5rem;
-			width: auto;
-			display: block;
-			object-fit: contain;
-		}
+	.logo {
+		height: 5rem;
+		width: auto;
+		display: block;
+		object-fit: contain;
+	}
 
 	.desktop-nav {
 		display: flex;
@@ -487,7 +483,9 @@
 		border-left: none;
 		border-right: none;
 		cursor: pointer;
-		transition: opacity 0.3s ease, padding-left 0.3s ease;
+		transition:
+			opacity 0.3s ease,
+			padding-left 0.3s ease;
 		text-align: left;
 		margin-top: 1rem;
 	}

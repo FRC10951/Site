@@ -108,8 +108,6 @@
 <Hero />
 
 <main>
-	<Motto />
-
 	<div bind:this={aboutElement}>
 		{#if About}
 			<svelte:component this={About} />
