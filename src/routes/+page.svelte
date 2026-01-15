@@ -1,24 +1,10 @@
-<!--
-	HOMEPAGE - Main Landing Page
-	Route: / (root)
-	This is the homepage of the website, featuring:
-	- Hero section with team branding
-	- Sponsors carousel
-	- About section
-	- STEM community showcase
-	- Events calendar
-	- Community projects
-	- Call-to-action section
--->
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
 	import Motto from '$lib/components/Motto.svelte';
-	import SponsorsCarousel from '$lib/components/SponsorsCarousel.svelte';
 	import { onMount } from 'svelte';
 	import { createLazyComponentLoader } from '$lib/utils/componentLoader';
 	import type { ComponentType } from 'svelte';
 
-	// Lazy load below-the-fold components with Intersection Observer
 	let About: ComponentType | null = null;
 	let FirstAge: ComponentType | null = null;
 	let VexFeature: ComponentType | null = null;
@@ -119,27 +105,22 @@
 	});
 </script>
 
+<Hero />
+
 <main>
-	<Hero />
-	<div class="section-separator"></div>
 	<Motto />
-	<div class="section-separator"></div>
-	<SponsorsCarousel />
-	<div class="section-separator"></div>
 
 	<div bind:this={aboutElement}>
 		{#if About}
 			<svelte:component this={About} />
 		{/if}
 	</div>
-	<div class="section-separator"></div>
 
 	<div bind:this={firstAgeElement}>
 		{#if FirstAge}
 			<svelte:component this={FirstAge} />
 		{/if}
 	</div>
-	<div class="section-separator"></div>
 
 	<!-- STEM Community Section: Card-based layout -->
 	<section class="stem-community" bind:this={vexFeatureElement}>
@@ -167,21 +148,18 @@
 			</div>
 		</div>
 	</section>
-	<div class="section-separator"></div>
 
 	<div bind:this={communityProjectsElement}>
 		{#if CommunityProjects}
 			<svelte:component this={CommunityProjects} />
 		{/if}
 	</div>
-	<div class="section-separator"></div>
 
 	<div bind:this={eventsElement}>
 		{#if Events}
 			<svelte:component this={Events} />
 		{/if}
 	</div>
-	<div class="section-separator"></div>
 
 	<div bind:this={ctaElement}>
 		{#if CTA}
@@ -194,14 +172,17 @@
 	main {
 		overflow-x: hidden;
 		position: relative;
-		background: white;
+		background: gray;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
 		margin: 0;
 		padding: 0;
 		width: 100%;
 	}
 
 	:global(.dark) main {
-		background: #161618; /* Apple Dark Elevated 1 - Primary Surface */
+		background: #161618;
 	}
 
 	.features-grid {
@@ -316,20 +297,6 @@
 		width: 100%;
 		display: flex;
 		align-items: stretch;
-	}
-
-	/* Section Separator - Color-mode responsive */
-	.section-separator {
-		width: 100%;
-		height: 1px;
-		background: #000000;
-		margin: 0;
-		padding: 0;
-		border: none;
-	}
-
-	:global(.dark) .section-separator {
-		background: #ffffff; /* Apple Pure White - Borders in dark mode */
 	}
 
 	@media (max-width: 768px) {

@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # OS
 Thumbs.db
+
+bun.lock
+package-lock.json

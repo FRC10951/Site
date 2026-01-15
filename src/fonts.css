@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'heming';
+	src: url('./lib/assets/fonts/Heming.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'instrument';
+	src: url('./lib/assets/fonts/InstrumentSans.ttf') format('truetype');
+}
+
+/* AI slop below */
+
 /* System Font - .SF NS (San Francisco) */
 /* System fonts are used throughout the site via -apple-system, BlinkMacSystemFont, etc. */
 
@@ -5,9 +17,10 @@
 /* NOTE: Font files must be added to /src/lib/assets/fonts/ */
 @font-face {
 	font-family: 'lulo-clean-w01-one-bold';
-	src: url('./lib/assets/fonts/lulo-clean-w01-one-bold.woff2') format('woff2'),
-		 url('./lib/assets/fonts/lulo-clean-w01-one-bold.woff') format('woff'),
-		 url('./lib/assets/fonts/lulo-clean-w01-one-bold.ttf') format('truetype');
+	src:
+		url('./lib/assets/fonts/lulo-clean-w01-one-bold.woff2') format('woff2'),
+		url('./lib/assets/fonts/lulo-clean-w01-one-bold.woff') format('woff'),
+		url('./lib/assets/fonts/lulo-clean-w01-one-bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
