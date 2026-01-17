@@ -90,7 +90,7 @@
 
 <header class="site-header" class:menu-open={mobileMenuOpen}>
 	<a class="logo-wrapper" class:menu-open={mobileMenuOpen} href="/">
-		<img src="/branding/wordmark-color.png" alt="Saigon South Dragons" class="logo" />
+		<img src="/brands/wordmark-color.png" alt="Saigon South Dragons" class="logo" />
 	</a>
 	<nav class="desktop-nav">
 		{#each navItems as item}

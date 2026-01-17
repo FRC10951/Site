@@ -43,7 +43,7 @@
 	>
 		<p class="opacity-60" transition:fly={{ y: 30, duration: 1000, delay: 400 }}>{subtitle}</p>
 		<p class="text-6xl font-black" transition:fly={{ y: 30, duration: 1000, delay: 400 }}>{title}</p>
-		<p class="max-w-[60ch] text-2xl text-balance" transition:fly={{ y: 20, duration: 1000, delay: 600 }}>
+		<p class="max-w-lead text-2xl text-balance" transition:fly={{ y: 20, duration: 1000, delay: 600 }}>
 			{description}
 		</p>
 		{@render children?.()}

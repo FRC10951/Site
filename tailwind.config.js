@@ -5,6 +5,14 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+				rebuilt: {
+					cyan: "#2B6675",
+					sand: {
+						DEFAULT: "#E0B45B",
+						// non-standard
+						dark: "#815E18",
+					},
+				},
 				ssis: {
 					blue: {
 						DEFAULT: "#0635aa",
@@ -108,6 +116,7 @@ export default {
 			},
 			spacing: {
 				content: "1600px",
+				lead: "60ch",
 				section: "4rem",
 				"section-sm": "2rem",
 				"section-lg": "6rem",
