@@ -1,102 +1,10 @@
 <script lang="ts">
 	import Hero from "$lib/components/Hero.svelte";
-	import Motto from "$lib/components/Motto.svelte";
-	import { onMount } from "svelte";
-	import { createLazyComponentLoader } from "$lib/utils/componentLoader";
-	import type { Component } from "svelte";
 	import HeroButton from "$lib/components/HeroButton.svelte";
 	import { FRC_URL, INSTAGRAM_URL, Links, SSIS_URL } from "$lib/constants";
-	import TextSeparator from "../TextSeparator.svelte";
 	import LinkButton from "$lib/components/LinkButton.svelte";
 	import Reel from "./Reel.svelte";
 	import Section from "$lib/components/Section.svelte";
-
-	let About: Component | null = $state(null);
-	let FirstAge: Component | null = $state(null);
-	let VexFeature: Component | null = $state(null);
-	let EmpowerTechCard: Component | null = $state(null);
-	let RobokidsCard: Component | null = $state(null);
-	let Events: Component | null = $state(null);
-	let CommunityProjects: Component | null = $state(null);
-	let CTA: Component | null = $state(null);
-
-	let aboutElement: HTMLElement | null = $state(null);
-	let firstAgeElement: HTMLElement | null = $state(null);
-	let vexFeatureElement: HTMLElement | null = $state(null);
-	let empowerTechElement: HTMLElement | null = $state(null);
-	let robokidsElement: HTMLElement | null = $state(null);
-	let eventsElement: HTMLElement | null = $state(null);
-	let communityProjectsElement: HTMLElement | null = $state(null);
-	let ctaElement: HTMLElement | null = $state(null);
-
-	onMount(() => {
-		const cleanup: (() => void)[] = [];
-
-		// Load components when they're about to be visible
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/About.svelte")).load(aboutElement, (component) => {
-				About = component;
-			})
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/FirstAge.svelte")).load(firstAgeElement, (component) => {
-				FirstAge = component;
-			})
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/VexFeature.svelte")).load(
-				vexFeatureElement,
-				(component) => {
-					VexFeature = component;
-				}
-			)
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/EmpowerTechCard.svelte")).load(
-				empowerTechElement,
-				(component) => {
-					EmpowerTechCard = component;
-				}
-			)
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/RobokidsCard.svelte")).load(
-				robokidsElement,
-				(component) => {
-					RobokidsCard = component;
-				}
-			)
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/Events.svelte")).load(eventsElement, (component) => {
-				Events = component;
-			})
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/CommunityProjects.svelte")).load(
-				communityProjectsElement,
-				(component) => {
-					CommunityProjects = component;
-				}
-			)
-		);
-
-		cleanup.push(
-			createLazyComponentLoader(() => import("$lib/components/CTA.svelte")).load(ctaElement, (component) => {
-				CTA = component;
-			})
-		);
-
-		return () => {
-			cleanup.forEach((fn) => fn());
-		};
-	});
 </script>
 
 <Hero
@@ -129,7 +37,7 @@
 			{@render Statistic("247,000,000$", "Received from Israel")}
 		</div>
 		{#snippet Link(text: string, url: string)}
-			<a class="frc10951-about-link opacity-35 hover:opacity-65 relative" href={url}>{text}</a>
+			<a class="team-link opacity-35 hover:opacity-65 relative" href={url}>{text}</a>
 		{/snippet}
 		<p class="text-6xl">
 			As {@render Link("Saigon South International School's", SSIS_URL)}
@@ -178,47 +86,59 @@
 					</div>
 					<div class="flex-grow"></div>
 					<h3>VEX Robotics</h3>
-					<p>VEX Worlds Trailblazer and Design Award recipient.</p>
-					<a href="/family/v5rc">Read More</a>
+					<p>VEX Worlds trailblazer and Design Award recipient.</p>
+					<a href="/family/v5rc" class="team-link">Read More</a>
 				</div>
 			</div>
 		</div>
 		<div class="team-family-card">
 			<div class="team-family-container">
+				<img src="/media/stem-in-ssis/empower-tech.webp" alt="Empower Tech" />
 				<div class="team-family-content">
 					<div class="team-family-logo w-48">
 						<img src="/brands/empower-tech-white.png" class="team-family-unhovered" alt="Empower Tech" />
 						<img src="/brands/empower-tech-color.png" class="team-family-hovered" alt="Empower Tech" />
 					</div>
 					<div class="flex-grow"></div>
-					<h3>Epstein Files</h3>
+					<h3>Empower Tech</h3>
 					<p>Empowering local communities through technology education and innovation.</p>
-					<a href="/family/empower-tech">Read More</a>
+					<a href="/family/empower-tech" class="team-link">Read More</a>
 				</div>
 			</div>
 		</div>
 		<div class="team-family-card">
 			<div class="team-family-container">
+				<img src="/media/stem-in-ssis/robokids.webp" alt="Robokids" />
 				<div class="team-family-content">
 					<div class="flex-grow"></div>
 					<h3>Robokids</h3>
 					<p>Spreading the love for robotics through hands-on learning.</p>
-					<a href="/family/robokids">Read More</a>
+					<a href="/family/robokids" class="team-link">Read More</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </Section>
 
-<div bind:this={ctaElement}>
-	{#if CTA}
-		<CTA />
-	{/if}
-</div>
-
 <style>
 	:root {
 		--team-family-gap: 0.25rem;
+	}
+
+	.team-link {
+		display: inline;
+		background-image: linear-gradient(currentColor, currentColor);
+		background-size: 0% 0.2em;
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+
+		transition:
+			background-size 300ms cubic-bezier(0.4, 0, 0.2, 1),
+			opacity 300ms;
+	}
+
+	.team-link:hover {
+		background-size: 100% 0.2em;
 	}
 
 	.team-family-card {
