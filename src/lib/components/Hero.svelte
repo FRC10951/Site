@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { fly } from "svelte/transition";
 	import HeroButton from "./HeroButton.svelte";
-	import { GITHUB_ORG_URL, INSTAGRAM_URL } from "$lib/constants";
 	import type { Snippet } from "svelte";
 
 	export interface Props {
@@ -28,7 +27,7 @@
 	}: Props = $props();
 </script>
 
-<section class="min-h-70 text-ssis-white" id="10951-hero">
+<section class="h-screen text-ssis-white" id="10951-hero">
 	<img
 		src={backgroundImage}
 		alt={backgroundAlt}

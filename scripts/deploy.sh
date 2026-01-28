@@ -27,46 +27,65 @@ print_info() {
     echo -e "${YELLOW}→${NC} $1"
 }
 
+# Ensure we are running from the project root (one level up from this script)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${SCRIPT_DIR}/.." || {
+    print_error "Failed to change directory to project root (${SCRIPT_DIR}/..)"
+    exit 1
+}
+
+# Detect if we're in a git repository
+if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    IN_GIT_REPO=true
+else
+    IN_GIT_REPO=false
+    print_info "Not inside a git repository - skipping git-related steps."
+fi
+
 # Step 1: Ensure Dockerfile has package-lock.json copy (before stashing)
 print_info "Verifying Dockerfile configuration..."
 DOCKERFILE_NEEDS_FIX=false
-if ! grep -q "package-lock.json" deployment/Dockerfile; then
+if [ -f deployment/Dockerfile ] && ! grep -q "package-lock.json" deployment/Dockerfile; then
     DOCKERFILE_NEEDS_FIX=true
     print_info "Dockerfile needs package-lock.json fix (will apply after pull)..."
 fi
 
 # Step 2: Check for local changes and stash if needed (but keep Dockerfile fix)
-print_info "Checking for local changes..."
 HAS_LOCAL_CHANGES=false
-if ! git diff-index --quiet HEAD --; then
-    # Check if only Dockerfile is modified (our fix)
-    MODIFIED_FILES=$(git diff --name-only HEAD)
-    if [ "$MODIFIED_FILES" = "deployment/Dockerfile" ] && [ "$DOCKERFILE_NEEDS_FIX" = true ]; then
-        print_info "Only Dockerfile fix detected, will reapply after pull..."
-        HAS_LOCAL_CHANGES=false
-    else
-        print_info "Local changes detected, stashing them..."
-        git stash push -m "Auto-stash before deployment $(date +%Y-%m-%d_%H:%M:%S)"
-        HAS_LOCAL_CHANGES=true
+if [ "$IN_GIT_REPO" = true ]; then
+    print_info "Checking for local changes..."
+    if ! git diff-index --quiet HEAD --; then
+        # Check if only Dockerfile is modified (our fix)
+        MODIFIED_FILES=$(git diff --name-only HEAD)
+        if [ "$MODIFIED_FILES" = "deployment/Dockerfile" ] && [ "$DOCKERFILE_NEEDS_FIX" = true ]; then
+            print_info "Only Dockerfile fix detected, will reapply after pull..."
+            HAS_LOCAL_CHANGES=false
+        else
+            print_info "Local changes detected, stashing them..."
+            git stash push -m "Auto-stash before deployment $(date +%Y-%m-%d_%H:%M:%S)"
+            HAS_LOCAL_CHANGES=true
+        fi
     fi
 fi
 
 # Step 3: Pull latest changes
-print_info "Pulling latest changes from repository..."
-if git pull origin main; then
-    print_success "Successfully pulled latest changes"
-else
-    print_error "Failed to pull changes"
-    if [ "$HAS_LOCAL_CHANGES" = true ]; then
-        print_info "Restoring stashed changes..."
-        git stash pop || true
+if [ "$IN_GIT_REPO" = true ]; then
+    print_info "Pulling latest changes from repository..."
+    if git pull origin main; then
+        print_success "Successfully pulled latest changes"
+    else
+        print_error "Failed to pull changes"
+        if [ "$HAS_LOCAL_CHANGES" = true ]; then
+            print_info "Restoring stashed changes..."
+            git stash pop || true
+        fi
+        exit 1
     fi
-    exit 1
-fi
 
-# Step 4: Show latest commit
-LATEST_COMMIT=$(git log -1 --oneline)
-print_info "Latest commit: $LATEST_COMMIT"
+    # Step 4: Show latest commit
+    LATEST_COMMIT=$(git log -1 --oneline)
+    print_info "Latest commit: $LATEST_COMMIT"
+fi
 
 # Step 5: Apply Dockerfile fix if needed
 if ! grep -q "package-lock.json" deployment/Dockerfile; then
@@ -124,9 +143,19 @@ if ! grep -q '"yaml"' package-lock.json; then
     npm install > /dev/null 2>&1
 fi
 
+# Determine docker compose command (docker-compose or docker compose)
+if command -v docker-compose > /dev/null 2>&1; then
+    DC="docker-compose"
+elif command -v docker > /dev/null 2>&1; then
+    DC="docker compose"
+else
+    print_error "Neither docker-compose nor docker compose is available on this system."
+    exit 1
+fi
+
 # Step 8: Build Docker image (with --no-cache to ensure fresh build)
 print_info "Building Docker image (this may take a few minutes)..."
-if docker-compose -f deployment/docker-compose.yml build --no-cache; then
+if $DC -f deployment/docker-compose.yml build --no-cache; then
     print_success "Docker image built successfully"
 else
     print_error "Docker build failed"
@@ -146,11 +175,11 @@ fi
 
 # Step 9: Stop and remove old container
 print_info "Stopping old container..."
-docker-compose -f deployment/docker-compose.yml down 2>/dev/null || true
+$DC -f deployment/docker-compose.yml down 2>/dev/null || true
 
 # Step 10: Start new container
 print_info "Starting new container with updated image..."
-if docker-compose -f deployment/docker-compose.yml up -d; then
+if $DC -f deployment/docker-compose.yml up -d; then
     print_success "Container started successfully"
 else
     print_error "Failed to start container"

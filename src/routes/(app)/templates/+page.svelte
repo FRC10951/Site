@@ -1,114 +1,12 @@
-<!--
-	TEMPLATES SHOWCASE PAGE
-	Route: /templates
-	Description: Showcase of reusable template components for building pages
--->
-<script lang="ts">
-	import TemplateHero from "$lib/components/templates/TemplateHero.svelte";
-	import TemplateFeatureGrid from "$lib/components/templates/TemplateFeatureGrid.svelte";
-	import TemplateStats from "$lib/components/templates/TemplateStats.svelte";
-	import TemplateTestimonials from "$lib/components/templates/TemplateTestimonials.svelte";
-	import TemplateImageText from "$lib/components/templates/TemplateImageText.svelte";
-	import TemplatePricing from "$lib/components/templates/TemplatePricing.svelte";
-	import TemplateCTA from "$lib/components/templates/TemplateCTA.svelte";
-	import TemplateGallery from "$lib/components/templates/TemplateGallery.svelte";
-	import type { ComponentType } from "svelte";
-
-	let activeSection: string = $state("all");
-	const sections: Array<{ id: string; name: string; component: ComponentType }> = [
-		{ id: "hero", name: "Hero", component: TemplateHero },
-		{ id: "features", name: "Features", component: TemplateFeatureGrid },
-		{ id: "stats", name: "Stats", component: TemplateStats },
-		{ id: "testimonials", name: "Testimonials", component: TemplateTestimonials },
-		{ id: "image-text", name: "Image + Text", component: TemplateImageText },
-		{ id: "pricing", name: "Pricing", component: TemplatePricing },
-		{ id: "gallery", name: "Gallery", component: TemplateGallery },
-		{ id: "cta", name: "CTA", component: TemplateCTA },
-	];
-
-	function filterSections(id: string): void {
-		activeSection = id;
-		if (id !== "all") {
-			const element = document.getElementById(id);
-			if (element) {
-				element.scrollIntoView({ behavior: "smooth", block: "start" });
-			}
-		}
-	}
-</script>
-
 <main class="templates-page">
 	<div class="page-header">
 		<div class="container">
-			<h1>Template Components</h1>
-			<p>Browse and copy reusable section templates for your website</p>
-		</div>
-	</div>
-
-	<div class="navigation-bar">
-		<div class="container">
-			<button class="nav-button" class:active={activeSection === "all"} onclick={() => (activeSection = "all")}>
-				All Sections
-			</button>
-			{#each sections as section}
-				<button
-					class="nav-button"
-					class:active={activeSection === section.id}
-					onclick={() => filterSections(section.id)}
-				>
-					{section.name}
-				</button>
-			{/each}
-		</div>
-	</div>
-
-	<div class="templates-container">
-		{#if activeSection === "all"}
-			{#each sections as section}
-				<div class="template-section" id={section.id}>
-					<div class="section-label">
-						<h2>{section.name} Section</h2>
-						<p>Component: {section.component.name}</p>
-					</div>
-					<section.component />
-				</div>
-			{/each}
-		{:else}
-			{#each sections.filter((s) => s.id === activeSection) as section}
-				<div class="template-section" id={section.id}>
-					<div class="section-label">
-						<h2>{section.name} Section</h2>
-						<p>Component: {section.component.name}</p>
-					</div>
-					<section.component />
-				</div>
-			{/each}
-		{/if}
-	</div>
-
-	<div class="info-section">
-		<div class="container">
-			<h2>How to Use</h2>
-			<div class="info-grid">
-				<div class="info-card">
-					<h3>1. Browse Templates</h3>
-					<p>Scroll through the sections above to see all available template components.</p>
-				</div>
-				<div class="info-card">
-					<h3>2. Copy Component</h3>
-					<p>
-						Navigate to <code>src/lib/components/templates/</code> and copy the component file you need.
-					</p>
-				</div>
-				<div class="info-card">
-					<h3>3. Customize</h3>
-					<p>Replace placeholder content and images with your actual content.</p>
-				</div>
-				<div class="info-card">
-					<h3>4. Import & Use</h3>
-					<p>Import the component in your page and add it to your layout.</p>
-				</div>
-			</div>
+			<h1>Templates</h1>
+			<p>
+				This page previously showcased reusable layout templates which have since been removed from the
+				current version of the site.
+			</p>
+			<p>We&apos;re working on a refreshed templates experience – stay tuned!</p>
 		</div>
 	</div>
 </main>
