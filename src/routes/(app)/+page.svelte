@@ -5,10 +5,11 @@
 	import LinkButton from "$lib/components/LinkButton.svelte";
 	import Reel from "./Reel.svelte";
 	import Section from "$lib/components/Section.svelte";
+	import { asset } from "$app/paths";
 </script>
 
 <Hero
-	backgroundImage="homepage-images/hero.webp"
+	backgroundImage={asset("/homepage-images/hero.webp")}
 	backgroundAlt="Members of the team Saigon South Dragons sitting across the Steam Design Center's staircase"
 	backgroundClasses="brightness-[35%] contrast-[120%] saturate-[80%]"
 	subtitle="Mission Statement"
@@ -46,7 +47,7 @@
 		</p>
 	</div>
 	<img
-		src="homepage-images/team.webp"
+		src={asset("homepage-images/team.webp")}
 		alt="Team 10951"
 		loading="lazy"
 		decoding="async"

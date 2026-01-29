@@ -10,10 +10,10 @@
 
 	let isDark = $state(false);
 
-	// Reactive FIRST logo path based on theme
-	let firstLogoSrc = $derived(
-		isDark ? "/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp" : "/FIRST-logos/FIRST-light-mode-horizontal-logo.webp"
-	);
+	// // Reactive FIRST logo path based on theme
+	// let firstLogoSrc = $derived(
+	// 	isDark ? "/FIRST-logos/FIRST-dark-mode-horizontal-logo.webp" : "/FIRST-logos/FIRST-light-mode-horizontal-logo.webp"
+	// );
 
 	// Initialize dark mode from localStorage (default to light mode)
 	onMount(() => {
@@ -99,7 +99,7 @@
 	<div class="footer-content">
 		<div class="brand">
 			<div class="footer-logo-wrapper">
-				<img src={firstLogoSrc} alt="FRC 10951 - Saigon South Dragons" class="footer-logo" />
+				<!-- <img src={firstLogoSrc} alt="FRC 10951 - Saigon South Dragons" class="footer-logo" /> -->
 			</div>
 			<h6 class="text-[#1a1a1a] dark:text-white">SSIS Dragons</h6>
 			<p class="text-[#666] dark:text-white">Team 10951<br />Saigon South International School<br />Saigon, Vietnam</p>
