@@ -3,6 +3,7 @@
 
 	import { onDestroy, onMount } from "svelte";
 	import { browser } from "$app/environment";
+	import { asset, resolve } from "$app/paths";
 
 	const navItems = [
 		{ label: "SSIS", href: "/" },
@@ -90,11 +91,11 @@
 
 <header class="site-header" class:menu-open={mobileMenuOpen}>
 	<a class="logo-wrapper" class:menu-open={mobileMenuOpen} href="/">
-		<img src="/brands/wordmark-color.png" alt="Saigon South Dragons" class="logo" />
+		<img src={asset("/brands/wordmark-color.png")} alt="Saigon South Dragons" class="logo" />
 	</a>
 	<nav class="desktop-nav">
 		{#each navItems as item}
-			<a href={item.href} class="nav-link">{item.label}</a>
+			<a href={resolve(item.href as any)} class="nav-link">{item.label}</a>
 		{/each}
 		<button
 			class="theme-toggle"
