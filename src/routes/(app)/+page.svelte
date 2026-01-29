@@ -8,7 +8,7 @@
 </script>
 
 <Hero
-	backgroundImage="/homepage-images/hero.webp"
+	backgroundImage="homepage-images/hero.webp"
 	backgroundAlt="Members of the team Saigon South Dragons sitting across the Steam Design Center's staircase"
 	backgroundClasses="brightness-[35%] contrast-[120%] saturate-[80%]"
 	subtitle="Mission Statement"
@@ -18,7 +18,7 @@
 	<nav class="flex items-center gap-4">
 		<HeroButton href={INSTAGRAM_URL} variant="primary">Instagram</HeroButton>
 		<a href={SSIS_URL} class="h-18">
-			<img src="/brands/ssis-white.png" alt="Saigon South International School" class="h-full" />
+			<img src="brands/ssis-white.png" alt="Saigon South International School" class="h-full" />
 		</a>
 	</nav>
 </Hero>
@@ -46,7 +46,7 @@
 		</p>
 	</div>
 	<img
-		src="/homepage-images/team.webp"
+		src="homepage-images/team.webp"
 		alt="Team 10951"
 		loading="lazy"
 		decoding="async"
@@ -60,7 +60,7 @@
 
 <Section class="bg-gradient-to-b from-ssis-white to-ssis-yellow" layoutClasses="items-center text-center">
 	<h2 class="text-3xl opacity-50">Our Rookie Season</h2>
-	<img src="/brands/frc/rebuilt-wordmark.svg" alt="FIRST Rebuilt Logo" class="h-64" />
+	<img src="brands/frc/rebuilt-wordmark.svg" alt="FIRST Rebuilt Logo" class="h-64" />
 	<p class="max-w-lead text-2xl">
 		first rebuilt is blah blah blah insert sponsor corp slop here first rebuilt is blah blah blah insert sponsor corp
 		slop here first rebuilt is blah blah blah insert sponsor corp slop here first rebuilt is blah blah blah insert
@@ -78,11 +78,11 @@
 	<div class="flex justify-center flex-col gap-4 tablet:flex-row tablet:gap-0 team-family-cards">
 		<div class="team-family-card">
 			<div class="team-family-container">
-				<img src="/media/stem-in-ssis/vex.webp" alt="VEX V5 Robotics Competition" />
+				<img src="media/stem-in-ssis/vex.webp" alt="VEX V5 Robotics Competition" />
 				<div class="team-family-content">
 					<div class="team-family-logo w-48">
-						<img src="/brands/vex-white.svg" class="team-family-unhovered" alt="VEX V5 Robotics Competition" />
-						<img src="/brands/vex-color.svg" class="team-family-hovered" alt="VEX V5 Robotics Competition" />
+						<img src="brands/vex-white.svg" class="team-family-unhovered" alt="VEX V5 Robotics Competition" />
+						<img src="brands/vex-color.svg" class="team-family-hovered" alt="VEX V5 Robotics Competition" />
 					</div>
 					<div class="flex-grow"></div>
 					<h3>VEX Robotics</h3>
@@ -93,11 +93,11 @@
 		</div>
 		<div class="team-family-card">
 			<div class="team-family-container">
-				<img src="/media/stem-in-ssis/empower-tech.webp" alt="Empower Tech" />
+				<img src="media/stem-in-ssis/empower-tech.webp" alt="Empower Tech" />
 				<div class="team-family-content">
 					<div class="team-family-logo w-48">
-						<img src="/brands/empower-tech-white.png" class="team-family-unhovered" alt="Empower Tech" />
-						<img src="/brands/empower-tech-color.png" class="team-family-hovered" alt="Empower Tech" />
+						<img src="brands/empower-tech-white.png" class="team-family-unhovered" alt="Empower Tech" />
+						<img src="brands/empower-tech-color.png" class="team-family-hovered" alt="Empower Tech" />
 					</div>
 					<div class="flex-grow"></div>
 					<h3>Empower Tech</h3>
@@ -108,7 +108,7 @@
 		</div>
 		<div class="team-family-card">
 			<div class="team-family-container">
-				<img src="/media/stem-in-ssis/robokids.webp" alt="Robokids" />
+				<img src="media/stem-in-ssis/robokids.webp" alt="Robokids" />
 				<div class="team-family-content">
 					<div class="flex-grow"></div>
 					<h3>Robokids</h3>
